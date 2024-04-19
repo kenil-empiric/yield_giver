@@ -1,0 +1,31 @@
+.lineFill {
+  width: 100% !important;
+  height: 650px !important;
+  margin: auto !important;
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .lineFill {
+    width: 100% !important;
+    height: 400px !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .lineFill {
+    width: 100% !important;
+    height: 350px !important;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 767.98px) {
+  .lineFill {
+    width: 100% !important;
+    height: 300px !important;
+  }
+}
+@media (max-width: 500.98px) {
+  .lineFill {
+    width: 100% !important;
+    height: 250px !important;
+  }
+}

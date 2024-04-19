@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dark {
+  background-color: #001450;
+  color: white;
+}
+
+.swapInput::-webkit-outer-spin-button,
+.swapInput::-webkit-inner-spin-button {
+  display: none;
+}

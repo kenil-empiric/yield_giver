@@ -1,0 +1,28 @@
+.lineCanvas {
+  width: 100% !important;
+  height: 160px !important;
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .lineCanvas {
+    width: 100% !important;
+    height: 140px !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .lineCanvas {
+    width: 100% !important;
+    height: 150px !important;
+  }
+}
+@media (min-width: 501px) and (max-width: 767.98px) {
+  .lineCanvas {
+    width: 100% !important;
+    height: 110px !important;
+  }
+}
+@media (max-width: 500.98px) {
+  .lineCanvas {
+    width: 100% !important;
+    height: 100px !important;
+  }
+}
