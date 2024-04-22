@@ -16,15 +16,15 @@ function GIV() {
         </div>
         <div className="w-full md:w-[50%] md:pt-4 lg:pl-7 lg:pt-5 xl:px-6 xl:pt-16 lg:w-[55%] 2xl:w-[55%] md:py-2 2xl:px-12 2xl:pt-24">
           <p className="text-5xl md:text-5xl lg:text-6xl 2xl:text-9xl font-gilroy font-bold">
-            GIV
+            GVST
           </p>
           <p className="text-base md:text-sm lg:text-lg xl:text-xl font-gilroy mt-1 md:mt-0 2xl:pr-10">
-            GIV is the token at the heart of the Yield Givers ecosystem. It is a
-            deflationary utility coin that gives back to investors and the
+            GVST is the token at the heart of the Yield Givers ecosystem. It is
+            a deflationary utility coin that gives back to investors and the
             community by doing the following with 1% of each transaction:
             burning, redistributing to investors, donating to a chosen charity,
-            adding locked liquidity, and fueling the marketing/devlopment
-            budget. Stake GIV for even more yield!
+            adding locked liquidity, and fueling the marketing/development
+            budget. Stake GVST for even more yield!
           </p>
           <div className="flex flex-wrap md:flex-row gap-2 lg:gap-4 mt-4 md:mt-2 lg:mt-4">
             <button
@@ -45,7 +45,7 @@ function GIV() {
                   : "bg-none dark:text-[#ffffff] text-[#000] border dark:border-[#ffffff] border-[#000]"
               } font-gilroy text-base lg:text-lg px-4 py-2 rounded-lg hover:text-[#ffffff] dark:text-[#ffffff] text-[#000] hover:bg-gradient-to-b from-blue-600 to-teal-400 hover:border-none`}
             >
-              Buy GIV
+              Buy GVST
             </button>
             <button
               onClick={() => setBtn(3)}
@@ -55,7 +55,7 @@ function GIV() {
                   : "bg-none dark:text-[#ffffff] text-[#000] border dark:border-[#ffffff] border-[#000]"
               } font-gilroy text-base lg:text-lg px-4 py-2 rounded-lg hover:text-[#ffffff] dark:text-[#ffffff] text-[#000] hover:bg-gradient-to-b from-blue-600 to-teal-400 hover:border-none`}
             >
-              Stake GIV
+              Stake GVST
             </button>
           </div>
         </div>
@@ -69,8 +69,8 @@ function GIV() {
               <span className="font-gilroy text-teal-400">YIELD GIVERS!</span>
             </p>
             <p className="text-white text-base lg:text-xl xl:text-2xl 2xl:text-3xl mt-3 lg:mt-4 2xl:mt-5 font-gilroy">
-              Boost your returns effortlessly while making a real difference.
-              Where your money works for you and the world.
+              Boost your returns effortlessly while making a real difference
+              where your money works for you and the world.
             </p>
           </div>
         </div>

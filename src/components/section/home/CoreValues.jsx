@@ -12,9 +12,9 @@ function CoreValues() {
         </p>
         <div className="w-full md:w-[95%] lg:w-[90%] xl:w-[80%] 2xl:w-[74%] m-auto mt-2 md:mt-5 px-6 md:px-4 lg:px-6 font-gilroy text-xl md:text-2xl text-left lg:text-center">
           We live, work, and share by the following guiding principles like
-          business and life rules to make sure we are on the path to be the best
-          we can be. We seek to bew as helpful and benevoletn as possible:every
-          day and in every way.
+          business and life rules to ensure we are on the path to be the best we
+          can be. We seek to be as helpful and benevolent as possible: every day
+          and in every way.
         </div>
         <div className="flex flex-col md:flex-row md:gap-[3.5%] gap-8 mt-8 px-6 md:px-8">
           {coreData &&

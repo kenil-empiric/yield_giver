@@ -126,6 +126,11 @@ function SecondaryNav() {
     }
   };
 
+  const handleHome = () => {
+    navigate("/");
+    return;
+  };
+
   return (
     <>
       <div className="w-full fixed top-0 left-0 z-40 bg-[#001450] text-[#ffffff]">
@@ -153,7 +158,10 @@ function SecondaryNav() {
               </Link>
             </div>
             <div className="md:w-[40%] xl:w-[45%] flex flex-row justify-between items-center gap-4">
-              <button className="hidden md:block border-2 p-3 border-[#001450] bg-blue-900 hover:border-blue-600 rounded-2xl">
+              <button
+                onClick={handleHome}
+                className="hidden md:block border-2 p-3 border-[#001450] bg-blue-900 hover:border-blue-600 rounded-2xl"
+              >
                 <FaHome className="text-xl md:text-xl text-white" />
               </button>
               <button className="hidden md:block border-2 p-3 border-[#001450] bg-blue-900 hover:border-blue-600 rounded-2xl">
@@ -172,19 +180,19 @@ function SecondaryNav() {
             </div>
             <div className=" flex items-center md:justify-between gap-3">
               {/* <Link to={"/pool"}> */}
-                <button
-                  onClick={() => {
-                    setWalletShow(!Walletshow);
-                  }}
-                  className="flex items-center gap-1 bg-gradient-to-b from-blue-600 to-teal-400 font-gilroy px-3 py-2 rounded-xl text-[#ffffff]"
-                >
-                  <IoWalletOutline className="text-2xl" />
-                  <span className="hidden md:block font-gilroy">
-                    {Address
-                      ? `${Address.slice(0, 6)}....${Address.slice(-4)}`
-                      : "Connect Wallet"}
-                  </span>
-                </button>
+              <button
+                onClick={() => {
+                  setWalletShow(!Walletshow);
+                }}
+                className="flex items-center gap-1 bg-gradient-to-b from-blue-600 to-teal-400 font-gilroy px-3 py-2 rounded-xl text-[#ffffff]"
+              >
+                <IoWalletOutline className="text-2xl" />
+                <span className="hidden md:block font-gilroy">
+                  {Address
+                    ? `${Address.slice(0, 6)}....${Address.slice(-4)}`
+                    : "Connect Wallet"}
+                </span>
+              </button>
               {/* </Link> */}
               <button
                 onClick={() => {

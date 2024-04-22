@@ -260,17 +260,17 @@ export const cardData = [
   {
     title: "Pick a Plan",
     img: logo,
-    desc: "Evaluate a Plan’s Past Performance, Investment Strategy and Risk Rating to grow your wealth quickly with opportunities you unserstand and support",
+    desc: "Evaluate a Plan’s Past Performance, Investment Strategy and Risk Rating to grow your wealth quickly with opportunities you understand and support",
   },
   {
-    title: "Deposite Crypto",
+    title: "Deposit Crypto",
     img: eth,
-    desc: "After staking your Crypto of choice, you’ll earn a proportionate share of high-yield dividends that’ll suprise you every minute!",
+    desc: "After staking your Crypto of choice, you’ll earn a proportionate share of high-yield dividends that’ll surprise you every minute! ",
   },
   {
     title: "Count Your DPY",
     img: money,
-    desc: "We focus on delivering a Daily Percentage Yield of atleast 0.5%. That’s over 150% APY which gets many investors doubling their wealth fast!",
+    desc: "We focus on delivering a Daily Percentage Yield of at least 0.5%. That’s over 150% APY which gets many investors doubling their wealth fast!",
   },
 ];
 
@@ -278,17 +278,17 @@ export const coreData = [
   {
     title: "Client-Centric Ethical Integrity",
     img: coreOne,
-    desc: "At Yield Givers, Ethics is the baseline where we measure, calculate,and upgrade our daily actions. Client-Heros are the forfront of every decision with your interests always paramount. Ourstead fast adherence to the highest moral standards is prioritized for long-term relationships, with trust earned through consistent, ethical, and relentless conduct.",
+    desc: "At Yield Givers, Ethics is the baseline for measuring, calculating, and upgrading our daily actions. Client-Heros are at the forefront of every decision with your interests always paramount. Ourstead fast adherence to the highest moral standards is prioritized for long-term relationships, with trust earned through consistent, ethical, and relentless conduct.",
   },
   {
-    title: "Compliant and Honest Transparancy",
+    title: "Compliant and Honest Transparency",
     img: coreTwo,
-    desc: "We believe in full transparency every day. We love to keep investors and stake holders updated with clear and open communication. We love emerging blockchain technology because it helps us see and show you the small-and big-picture easily. We work hard to help you make informed and confident investment decisions.",
+    desc: "We believe in full transparency every day. We love to keep investors and stakeholders updated with clear and open communication. We love emerging blockchain technology because it helps us see and show you the small and big picture easily. We work hard to help you make informed and confident investment decisions.",
   },
   {
     title: "Risk Management & Capital Preservation",
     img: coreThree,
-    desc: "Rigorous , strategic , and analytic risk management is central to our Sunnah. We meticulously evaluate a myriad of factors for each finincial position to mitigate risks, protect capital, and grow investments. Our rigorous research and anylsys practices are the backbone and driving force of our success",
+    desc: "Rigorous, strategic, and analytic risk management is central to our Sunnah. We meticulously evaluate various factors for each financial position to mitigate risks, protect capital, and grow investments. Our rigorous research and analysis practices are the backbone and driving force of our success",
   },
 ];
 
@@ -306,12 +306,12 @@ export const InnovateData = [
   {
     title: "Accountability",
     img: innovate,
-    desc: "We value responsibility and transparency in our relationship with you. We embrace each commitment as a sacred pledge, a tribute to our unwavering support for your journey. Your trust is our most cherished emblem, guiding us to diligently nurture your path to prosperity and happiness,ensuring every step is taken with integrity and dedication.",
+    desc: "We value responsibility and transparency in our relationship with you. We embrace each commitment as a sacred pledge, a tribute to our unwavering support for your journey. Your trust is our most cherished emblem, guiding us to diligently nurture your path to prosperity and happiness, ensuring every step is taken with integrity and dedication. ",
   },
   {
     title: "Adaptability",
     img: Performance,
-    desc: "In the ever-shifting finance landscape, your goals are our focus. Yield Givers offers flexible, innovative strategies that evolve with you, bringing steadiness to a volatile market. Feel the assurance of a dedicated ally, skillfully guiding through changes to enhance and secure your financial prosperity. We turn today's unpredictability into tomorrow's affluent certainties.",
+    desc: "In the ever-shifting finance landscape, your goals are our focus. Yield Givers offers flexible, innovative strategies that evolve with you, bringing steadiness to a volatile market. Feel the assurance of a dedicated ally, skillfully guiding you through changes to enhance and secure your financial prosperity. We turn today's unpredictability into tomorrow's affluent certainties.",
   },
   {
     title: "High Performance",
@@ -321,7 +321,7 @@ export const InnovateData = [
   {
     title: "Strategic Diversification",
     img: accountability,
-    desc: "An all-weather fund requires a vast diversity of asset allocation, multiple strategies for each asset class, and constant portfolio management. Our professional Investment managers and trading bot operators oversee more diversity that most fund-of-fund managers see in a year. Our deep research and development are ongoing to find the forefront of financial excellence, keeping your funds soaring.",
+    desc: "An all-weather fund requires a vast diversity of asset allocation, multiple strategies for each asset class, and constant portfolio management. Our professional Investment managers and trading bot operators oversee more diversity than most fund-of-fund managers see in a year. Our deep research and development are ongoing to find the forefront of financial excellence, keeping your funds soaring.",
   },
 ];
 

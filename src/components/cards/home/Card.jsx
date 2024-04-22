@@ -30,11 +30,11 @@ function Card({ el }) {
 
   return (
     <>
-      <div className="w-full p-4 max-w-lg border-2 border-blue-400 rounded-lg shadow sm:p-8">
+      <div className="w-full p-4 max-w-lg border-2 border-blue-400 rounded-lg shadow sm:p-8 md:h-[640px] lg:h-[530px] xl:h-[540px]">
         <h5
           data-tooltip-id="my-tooltip"
           data-tooltip-content={el.title}
-          className="mb-4 flex font-gilroy text-2xl md:text-3xl lg:text-3xl xl:text-xl 2xl:text-3xl items-center justify-center font-bold text-center"
+          className="mb-4 flex font-gilroy text-2xl md:text-3xl lg:text-3xl xl:text-xl 2xl:text-2xl items-center justify-center font-bold text-center"
         >
           Pool #{el.id}: {el.title}
           <span>
