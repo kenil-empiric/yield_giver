@@ -16,7 +16,7 @@ function KYCForm() {
 
   return (
     <>
-      <div className="my-20 px-5 md:my-20 md:px-5 2xl:px-5">
+      <div className="my-20 px-5 md:my-20 md:px-2 2xl:px-2">
         {Address ? (
           <iframe
             title="JotForm"
@@ -27,35 +27,48 @@ function KYCForm() {
           />
         ) : (
           <>
-            <div className="border border-gray-300 dark:border-gray-700 px-4 py-6 md:px-4 md:py-8 lg:px-6 lg:py-12 xl:px-8 xl:py-16 rounded-3xl">
-              <p className="text-3xl text-center font-bold md:text-4xl lg:text-5xl font-gilroy">
-                Welcome to HeroVestor with{" "}
-                <span
-                  style={{
-                    background: "linear-gradient(to right, #35cdc2, #236de7)",
-                    WebkitBackgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
-                  Yield Givers!
-                </span>
+            <div className="border whitespace-no-wrap border-gray-300 dark:border-gray-700 px-4 py-6 md:px-4 md:py-8 lg:px-6 lg:py-12 xl:px-8 xl:py-16 rounded-3xl">
+              <p
+                className="text-3xl text-center font-bold md:text-4xl lg:text-5xl font-gilroy"
+                style={{
+                  background: "linear-gradient(to right, #35cdc2, #236de7)",
+                  WebkitBackgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                Welcome Givestor
               </p>
-              <p className="text-lg md:text-xl lg:text-3xl font-gilroy text-left lg:text-center lg:leading-10 mt-4 lg:mt-8">
-                Connect your wallet and complete your{" "}
+              <p className="text-lg md:text-xl xl:text-2xl font-gilroy text-left lg:text-center lg:leading-8 mt-4 lg:mt-2">
+                {" "}
+                Join the Mission of Investment Compassion with Yield Givers,
+                where we help humanitarian charities to save the world from the
+                challenges of war and disasters and inadequate access to
+                healthcare, food, shelter, and clean water.
+              </p>
+              <p className="text-lg md:text-xl xl:text-2xl font-gilroy text-left lg:text-center lg:leading-8">
+                Link your DeFi wallet now complete our
                 <span
-                  className="font-bold md:text-2xl lg:text-4xl"
+                  className="font-bold md:text-2xl"
                   style={{
                     background: "linear-gradient(to right, #35cdc2, #236de7)",
                     WebkitBackgroundClip: "text",
                     color: "transparent",
                   }}
                 >
-                  KYC (Know Your Customer){" "}
+                  {" "}
+                  Onboarding Questionaire{" "}
                 </span>
-                form to participate in our staking program and unlock exclusive
-                rewards. Your information is securely stored and used only for
-                verification purposes. Let's begin your journey towards earning
-                passive income and maximizing your investment potential!
+                , and gain access to the Givestor world of prosperity and
+                generosity. As a GiveVestor, you're not just investing; you're
+                unlocking a realm of financial acceleration and spiritual growth
+                exclusive to our vaults of investment tools.
+                <br /> Rest assured, your information is safe with us, and used
+                strictly for verification. Embark on a fulfilling journey where
+                your finances don't just grow passively—they become a powerful
+                force for global healing. Embrace this unique opportunity to
+                make a difference, enjoy your life fully, and honor the divine
+                call to serve. Join us and witness your contributions transform
+                the world, one investment at a time.
               </p>
             </div>
             <div className="border mt-10 border-gray-300 dark:border-gray-700 px-4 py-6 md:px-4 md:py-8 lg:px-6 lg:py-12 xl:px-8 xl:py-8 rounded-3xl">

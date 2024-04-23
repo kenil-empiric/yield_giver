@@ -89,7 +89,7 @@ const CardComponent = () => {
     },
     {
       id: 3,
-      title: "DeFi Stablecoin Trading",
+      title: "Stablecoin Trading",
       Total_Profit: "54.17 %",
       Active_Days: "115",
       graph: "",

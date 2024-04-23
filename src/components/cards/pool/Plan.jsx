@@ -32,7 +32,7 @@ const Plan = (props) => {
 
   return (
     <div className="xl:pt-8 2xl:pt-10 px-5">
-      <div className="w-full  p-4 text-center bg-white border border-gray-200 rounded-3xl shadow sm:p-8 dark:bg-transparent dark:border-gray-700">
+      {/* <div className="w-full  p-4 text-center bg-white border border-gray-200 rounded-3xl shadow sm:p-8 dark:bg-transparent dark:border-gray-700">
         <div className="flex pb-8 flex-wrap ">
           <h1 className="text-3xl  md:text-5xl font-bold ">Plans :</h1>
         </div>
@@ -61,7 +61,7 @@ const Plan = (props) => {
             );
           })}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

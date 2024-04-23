@@ -14,53 +14,55 @@ function PoolDetails() {
   const card = CardComponent();
   return (
     <>
-      <div className="container flex flex-col gap-4 sm:gap-6 mx-auto pt-24 px-5 sm:px-8 md:px-12">
+      <div className="container flex flex-col gap-4 sm:gap-5 mx-auto pt-24 px-5 sm:px-6 md:px-8">
         <p className="text-center mt-5 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-gilroy font-bold">
           Pool #{id}: {card[id - 1]?.title}
         </p>
-        <p className="text-base sm:text-xl lg:text-2xl mt-2 font-medium font-gilroy">
-          {card[id - 1]?.title_wlc}
-        </p>
-        <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
-          {card[id - 1]?.desc1}
-        </p>
-        <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
-          {card[id - 1]?.desc2}
-        </p>
-        <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
-          {card[id - 1]?.desc3}
-        </p>
-        <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
-          <span className="font-gilroy font-bold">{card[id - 1]?.t1} </span>
-          {card[id - 1]?.avoidance}
-        </p>
-        <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
-          {" "}
-          <span className="font-gilroy font-bold">{card[id - 1]?.t2} </span>
-          {card[id - 1]?.gharar}
-        </p>
-        <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
-          {" "}
-          <span className="font-gilroy font-bold">{card[id - 1]?.t3} </span>
-          {card[id - 1]?.halal}
-        </p>
-        <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
-          <span className="font-gilroy font-bold">{card[id - 1]?.t4} </span>
-          {card[id - 1]?.transparency}
-        </p>
-        <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
-          <span className="font-gilroy font-bold">{card[id - 1]?.t5} </span>
-          {card[id - 1]?.profit}
-        </p>
-        <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
-          {card[id - 1]?.extra_portion && card[id - 1]?.extra_portion}
-        </p>
-        <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
-          {card[id - 1]?.last_portion}
-        </p>
-        <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
-          {card[id - 1]?.last_title}
-        </p>
+        <div className="flex flex-col gap-4 sm:gap-5 rounded-2xl border whitespace-no-wrap border-gray-300 dark:border-gray-700 p-5 sm:p-6 md:p-10">
+          <p className="text-base sm:text-xl lg:text-2xl mt-2 font-medium font-gilroy">
+            {card[id - 1]?.title_wlc}
+          </p>
+          <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
+            {card[id - 1]?.desc1}
+          </p>
+          <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
+            {card[id - 1]?.desc2}
+          </p>
+          <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
+            {card[id - 1]?.desc3}
+          </p>
+          <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
+            <span className="font-gilroy font-bold">{card[id - 1]?.t1} </span>
+            {card[id - 1]?.avoidance}
+          </p>
+          <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
+            {" "}
+            <span className="font-gilroy font-bold">{card[id - 1]?.t2} </span>
+            {card[id - 1]?.gharar}
+          </p>
+          <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
+            {" "}
+            <span className="font-gilroy font-bold">{card[id - 1]?.t3} </span>
+            {card[id - 1]?.halal}
+          </p>
+          <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
+            <span className="font-gilroy font-bold">{card[id - 1]?.t4} </span>
+            {card[id - 1]?.transparency}
+          </p>
+          <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
+            <span className="font-gilroy font-bold">{card[id - 1]?.t5} </span>
+            {card[id - 1]?.profit}
+          </p>
+          <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
+            {card[id - 1]?.extra_portion && card[id - 1]?.extra_portion}
+          </p>
+          <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
+            {card[id - 1]?.last_portion}
+          </p>
+          <p className="text-base sm:text-xl lg:text-2xl font-medium font-gilroy">
+            {card[id - 1]?.last_title}
+          </p>
+        </div>
       </div>
 
       <div className="container mx-auto flex flex-col lg:flex-row py-8 md:py-16 lg:py-20 2xl:py-20 justify-around">

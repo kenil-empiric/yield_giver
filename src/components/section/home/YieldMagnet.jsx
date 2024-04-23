@@ -50,7 +50,7 @@ function YieldMagnet() {
           <p className="text-base font-gilroy text-left ">
             Imagine… what would happen if you could safely multiply your
             Investment and income every year? What would you do if you could
-            double your net worth year after year? How would it change you? How
+            double your net worth year after year? <br /> How would it change you? How
             would you change the world around you? <br />
             Launch the app NOW and start navigating the investment landscape
             with our trusted guidance system and experience the MASSIVE yield
