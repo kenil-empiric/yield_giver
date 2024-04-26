@@ -42,7 +42,7 @@ function WalletConnect({
                       className="w-24 h-10 md:h-14 lg:h-14 xl:h-12"
                     />
                     <p
-                      className="text-sm font-gilroy md:text-lg font-bold"
+                      className="text-sm font-montserrat md:text-lg font-bold"
                       style={{
                         lineHeight: "22px",
                       }}
@@ -54,7 +54,7 @@ function WalletConnect({
               </div>
               {userAddress ? (
                 <div className="mt-8 md:mt-10 p-2">
-                  <div className="text-xl text-[#000] dark:text-[#ffffff] hover:border-[#ffffff] dark:border-blue-900 hover:text-[#ffffff] mb-3 font-gilroy font-bold flex items-center gap-1 w-[90%] md:w-full lg:w-[85%] m-auto justify-center hover:dark:bg-blue-950 hover:bg-gradient-to-bl from-blue-600 to-teal-400 border rounded-md border-blue-900 p-2">
+                  <div className="text-xl font-Open_Sans text-[#000] dark:text-[#ffffff] hover:border-[#ffffff] dark:border-blue-900 hover:text-[#ffffff] mb-3 font-gilroy font-bold flex items-center gap-1 w-[90%] md:w-full lg:w-[85%] m-auto justify-center hover:dark:bg-blue-950 hover:bg-gradient-to-bl from-blue-600 to-teal-400 border rounded-md border-blue-900 p-2">
                     <p>
                       {userAddress &&
                         `${userAddress.slice(0, 6)}....${userAddress.slice(
@@ -68,7 +68,7 @@ function WalletConnect({
                     />
                   </div>
                   <div className="w-[90%] dark:text-[#ffffff] hover:text-[#ffffff] hover:dark:border-blue-900 hover:border-[#ffffff] md:w-full lg:w-[85%] m-auto flex items-center justify-center hover:bg-blue-950 hover:bg-gradient-to-bl from-blue-600 to-teal-400 border rounded-md border-blue-900 gap-6 md:justify-evenly p-2">
-                    <button className="py-4 px-6 md:p-4 bg-transparent rounded-xl text-sm md:text-lg font-bold font-gilroy">
+                    <button className="py-4 px-6 md:p-4 bg-transparent rounded-xl text-sm md:text-lg font-bold font-Open_Sans">
                       {userBalance && Number(userBalance)?.toFixed(4)} ETH
                     </button>
                     <FaPowerOff
@@ -91,7 +91,7 @@ function WalletConnect({
                           alt="metamask.img"
                           className="rounded-xl"
                         />
-                        <p className="font-gilroy text-base lg:text-xl font-bold">
+                        <p className="font-Open_Sans text-base lg:text-xl font-bold">
                           {item.title}
                         </p>
                       </button>
@@ -99,7 +99,7 @@ function WalletConnect({
                 </div>
               )}
             </div>
-            <div className="mb-14 text-wrap w-full px-2 md:mb-8 text-xs mx-auto font-gilroy">
+            <div className="mb-14 text-wrap w-full px-2 md:mb-8 text-xs mx-auto font-Open_Sans">
               By connecting a wallet, you agree to Yield Givers' Terms of
               Service and consent to its Privacy Policy. (Last updated 2.16.24)
             </div>

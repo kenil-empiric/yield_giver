@@ -6,7 +6,7 @@ function GIV() {
   const [btn, setBtn] = useState(1);
   return (
     <>
-      <div className="px-5 mt-6 md:mt-0 flex flex-col md:flex-row">
+      {/* <div className="px-5 mt-6 md:mt-0 flex flex-col md:flex-row">
         <div className="w-full p-10 md:w-[50%] lg:w-[45%] xl:w-[45%] 2xl:w-[45%] md:p-4 xl:p-14 rounded-2xl 2xl:p-20">
           <img
             src={giv}
@@ -59,14 +59,16 @@ function GIV() {
             </button>
           </div>
         </div>
-      </div>
-      <div className="w-full bg-gradient-to-b from-blue-600 to-teal-400 md:bg-none mt-12 md:mt-12 lg:mt-16 xl:mt-10">
+      </div> */}
+      <div className="w-full bg-gradient-to-b from-blue-600 to-teal-400 md:bg-none mt-12 md:mt-12 lg:mt-16 xl:mt-24">
         <div className="w-full md:relative px-5 py-10 md:py-0 md:px-5 2xl:px-0">
           <img src={img} alt="image.jpg" className="w-full hidden md:block" />
           <div className="w-full md:w-[60%] lg:w-[60%] xl:w-[55%] md:absolute md:top-14 md:left-10 lg:top-20 lg:left-12 xl:top-28 xl:left-20 2xl:top-36 2xl:left-20 pr-0">
             <p className="text-white text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-montserrat font-extrabold md:leading-[42px] lg:leading-[55px] xl:leading-[58px] 2xl:leading-[66px]">
               EARN MORE, GIVE MORE WITH{" "}
-              <span className="font-montserrat text-teal-400">YIELD GIVERS!</span>
+              <span className="font-montserrat text-teal-400">
+                YIELD GIVERS!
+              </span>
             </p>
             <p className="text-white text-base lg:text-xl xl:text-2xl 2xl:text-3xl mt-3 lg:mt-4 2xl:mt-5 font-montserrat">
               Boost your returns effortlessly while making a real difference

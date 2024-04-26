@@ -7,7 +7,7 @@ function Stake({ item }) {
           <p className="text-xl text-left md:leading-6 lg:leading-8 md:text-center md:text-lg lg:text-2xl 2xl:text-2xl font-montserrat font-bold">
             {item.title}
           </p>
-          <p className="font-Open_Sans text-left md:text-center md:text-2xl text-xl lg:text-4xl font-semibold">
+          <p className="font-Open_Sans text-[#FFD700] text-left md:text-center md:text-2xl text-xl lg:text-4xl font-semibold">
             {item.value}
           </p>
         </div>

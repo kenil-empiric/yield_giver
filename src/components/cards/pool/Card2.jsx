@@ -131,70 +131,70 @@ const Card2 = ({ Percentage }) => {
     <>
       <div className="flex justify-center">
         <div className="grid grid-cols-1 p-5 gap-4 w-full max-w-xl bg-white border border-gray-300 rounded-3xl shadow hover:brightness-100  from-black to-blue-500  dark:bg-gradient-to-b  dark:border-gray-700">
-          <h1 className="text-xl md:text-4xl md:pb-9 lg:pb-0 font-bold text-left table-mi-head font-gilroy">
+          <h1 className="text-xl md:text-4xl md:pb-9 lg:pb-0 font-bold text-left table-mi-head font-montserrat">
             MY STATS
           </h1>
           <div className="table-calculator-wr">
             <div className="grid grid-cols-2 gap-4">
               <div className="calculator-block">
-                <div className="font-gilroy">Your Total Staked:</div>
-                <div className="text-lg md:text-2xl font-gilroy">
+                <div className="font-Open_Sans">Your Total Staked:</div>
+                <div className="text-lg md:text-2xl font-Open_Sans">
                   {Investment}{" "}
-                  <span className="text-teal-400 font-bold font-gilroy">
+                  <span className="text-teal-400 font-bold font-Open_Sans">
                     USDC
                   </span>
                 </div>
               </div>
-              <div className="calculator-block">
-                <div className="calcul-head-text font-gilroy">
+              <div className="calculator-block font-Open_Sans">
+                <div className="calcul-head-text font-Open_Sans">
                   Total Amount Withdrawn:
                 </div>
                 <div className="text-lg md:text-2xl">
                   {Number(TotalWith)?.toFixed(4)}{" "}
-                  <span className="text-teal-400 font-bold font-gilroy">
+                  <span className="text-teal-400 font-bold font-Open_Sans">
                     USDC
                   </span>
                 </div>
               </div>
-              <div className="calculator-block">
-                <div className="calcul-head-text font-gilroy">
+              <div className="calculator-block font-Open_Sans">
+                <div className="calcul-head-text font-Open_Sans">
                   Your Total Earnings:
                 </div>
-                <div className="text-lg md:text-2xl font-gilroy">
+                <div className="text-lg md:text-2xl font-Open_Sans">
                   {total_Earning?.toFixed(5)}{" "}
-                  <span className="text-teal-400 font-bold font-gilroy">
+                  <span className="text-teal-400 font-bold font-Open_Sans">
                     USDC
                   </span>
                 </div>
               </div>
-              <div className="calculator-block">
-                <div className="calcul-head-text font-gilroy">
+              <div className="calculator-block font-Open_Sans">
+                <div className="calcul-head-text font-Open_Sans">
                   Your Combined Yield:{" "}
                 </div>
-                <div className="text-lg md:text-2xl font-gilroy">
+                <div className="text-lg md:text-2xl font-Open_Sans">
                   {Combined_Yield_Average}%{" "}
-                  <span className="text-teal-400 font-bold font-gilroy">
+                  <span className="text-teal-400 font-bold font-Open_Sans">
                     per day
                   </span>
                 </div>
               </div>
               {/* new here */}
-              <div className="calculator-block">
-                <div className="font-gilroy">Your Number of Referrals:</div>
-                <div className="text-lg md:text-2xl font-gilroy">
+              <div className="calculator-block font-Open_Sans">
+                <div className="font-Open_Sans">Your Number of Referrals:</div>
+                <div className="text-lg md:text-2xl font-Open_Sans">
                   {referral}{" "}
-                  <span className="text-teal-400 font-bold font-gilroy">
+                  <span className="text-teal-400 font-bold font-Open_Sans">
                     Referrals
                   </span>
                 </div>
               </div>
-              <div className="calculator-block">
-                <div className="calcul-head-text font-gilroy">
+              <div className="calculator-block font-Open_Sans">
+                <div className="calcul-head-text font-Open_Sans">
                   Your Referral Earnings:
                 </div>
-                <div className="text-lg md:text-2xl font-gilroy">
+                <div className="text-lg md:text-2xl font-Open_Sans">
                   {Number(TotalEarn)?.toFixed(6)}{" "}
-                  <span className="text-teal-400 font-bold font-gilroy">
+                  <span className="text-teal-400 font-bold font-Open_Sans">
                     USDC
                   </span>
                 </div>
@@ -205,12 +205,12 @@ const Card2 = ({ Percentage }) => {
           <div className="grid grid-cols-1 gap-6 lg:gap-5 xl:gap-3 md:pt-3 lg:py-5 xl:py-1">
             <div className="flex flex-row items-center gap-3">
               <div className="w-full ">
-                <div className="calcul-head-text font-gilroy">
+                <div className="calcul-head-text font-Open_Sans">
                   Total Available Balance:
                 </div>
-                <div className="text-lg md:text-2xl font-gilroy">
+                <div className="text-lg md:text-2xl font-Open_Sans">
                   {Number(totalWithdraw)?.toFixed(5)}{" "}
-                  <span className="text-teal-400 font-bold font-gilroy">
+                  <span className="text-teal-400 font-bold font-Open_Sans">
                     USDC
                   </span>
                 </div>
@@ -220,7 +220,7 @@ const Card2 = ({ Percentage }) => {
                   onClick={HandleWithdraw}
                   type="button"
                   disabled={!Address}
-                  className={`text-[#000] flex justify-center items-center p-2.5 font-gilroy font-bold text-xs lg:text-base xl:text-xl bg-[#FFD700] hover:brightness-105 focus:outline-none rounded-full w-full text-center ${
+                  className={`text-[#000] flex justify-center items-center p-2.5 font-Open_Sans font-bold text-xs lg:text-base xl:text-xl bg-[#FFD700] hover:brightness-105 focus:outline-none rounded-full w-full text-center ${
                     !Address ? "opacity-50" : ""
                   }`}
                 >
@@ -244,7 +244,7 @@ const Card2 = ({ Percentage }) => {
             <button
               onClick={WithdrawPrin}
               type="button"
-              className="text-[#000] font-gilroy text-sm lg:text-base xl:text-xl font-bold bg-[#FFD700] focus:outline-none rounded-full w-full py-4 text-center me-2 mb-0"
+              className="text-[#000] font-Open_Sans text-sm lg:text-base xl:text-xl font-bold bg-[#FFD700] focus:outline-none rounded-full w-full py-4 text-center me-2 mb-0"
             >
               WITHDRAW PRINCIPAL
             </button>

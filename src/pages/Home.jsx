@@ -30,8 +30,8 @@ function Home() {
               x2="0%"
               y2="0%"
             >
-              <stop stopColor="#4FD1C5" offset="0%" />
-              <stop stopColor="#2563EB" offset="100%" />
+              <stop stopColor="#FFD700" offset="0%" />
+              <stop stopColor="#FFD700" offset="100%" />
             </linearGradient>
           </svg>
 
@@ -40,7 +40,7 @@ function Home() {
             className="text-8xl md:text-9xl"
           />
           <p className="text-2xl leading-7 md:text-4xl font-montserrat font-bold">
-          Stake to Earn Extraordinary Yield
+            Stake to Earn Extraordinary Yield
           </p>
         </div>
         <div className="w-full 2xl:container-full lg:px-6 2xl:px-0 flex flex-col px-6 md:px-8 md:flex-row md:gap-[2%] gap-5 pt-5 md:my-4">

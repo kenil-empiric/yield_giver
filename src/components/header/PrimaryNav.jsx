@@ -59,7 +59,7 @@ function PrimaryNav() {
               </Link>
               <Link to={"/"} className="cursor-pointer">
                 <p
-                  className="text-sm font-gilroy md:text-lg font-bold"
+                  className="text-sm text-[#FFD700] font-montserrat md:text-lg font-bold"
                   style={{
                     lineHeight: "22px",
                   }}
@@ -78,7 +78,7 @@ function PrimaryNav() {
               </div>
               <div>
                 <Link to={"/pool"}>
-                  <button className="bg-[#FFD700] font-semibold hover:text-[#ffffff] hover:bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 font-gilroy px-3 py-2 rounded-xl text-[#000]">
+                  <button className="bg-[#FFD700] font-Open_Sans font-semibold hover:text-[#ffffff] hover:bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 font-gilroy px-3 py-2 rounded-xl text-[#000]">
                     Launch dApp
                   </button>
                 </Link>

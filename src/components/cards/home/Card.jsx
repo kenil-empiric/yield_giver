@@ -34,7 +34,7 @@ function Card({ el }) {
         <h5
           data-tooltip-id="my-tooltip"
           data-tooltip-content={el.title}
-          className="mb-4 flex font-gilroy text-2xl md:text-2xl lg:text-2xl xl:text-xl 2xl:text-2xl items-center justify-center font-bold text-center"
+          className="mb-4 flex font-montserrat text-2xl md:text-2xl lg:text-2xl xl:text-xl 2xl:text-2xl items-center justify-center font-bold text-center"
         >
           Pool #{el.id}: {el.title}
           <span>
@@ -47,28 +47,28 @@ function Card({ el }) {
         {/* </div> */}
         <div className="grid grid-row-2  gap-2">
           <div className="grid grid-cols-2 gap-0 py-2 col-span-2 items-center">
-            <div className="row-start-1 flex font-gilroy flex-col gap-0 items-start justify-center ">
-              <span className="text-2xl font-gilroy text-green-400">
+            <div className="row-start-1 flex font-Open_Sans flex-col gap-0 items-start justify-center ">
+              <span className="text-2xl font-Open_Sans text-green-400">
                 {el.Total_Profit}
               </span>
               Total Profit
             </div>
-            <div className="row-start-1 flex font-gilroy flex-col gap-0 items-start justify-center ">
-              <span className=" text-2xl font-gilroy">{el.Active_Days}</span>
+            <div className="row-start-1 flex font-Open_Sans flex-col gap-0 items-start justify-center ">
+              <span className=" text-2xl font-Open_Sans">{el.Active_Days}</span>
               Active Days
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-0 py-2 col-span-2">
-            <div className="row-start-2 flex font-gilroy flex-col gap-0 ">
-              <span className=" text-2xl font-gilroy text-green-400">
+            <div className="row-start-2 flex font-Open_Sans flex-col gap-0 ">
+              <span className=" text-2xl font-Open_Sans text-green-400">
                 {el.AUM}%
               </span>{" "}
               Current Annual Yield
             </div>
-            <div className="row-start-2 flex font-gilroy flex-col gap-0 ">
-              <span className=" text-2xl font-gilroy">{el.AUM_Eth}</span> Assets
-              Under Management
+            <div className="row-start-2 flex font-Open_Sans flex-col gap-0 ">
+              <span className=" text-2xl font-Open_Sans">{el.AUM_Eth}</span>{" "}
+              Assets Under Management
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@ function Card({ el }) {
             <button
               type="button"
               disabled={el.id === plan_Number || !Address || !KYC}
-              className={`text-[#000] font-bold font-gilroy mt-2 bg-[#FFD700] focus:ring-4 focus:outline-none rounded-xl xl:text-base 2xl:text-xl px-5 py-2.5 inline-flex justify-center text-center ${
+              className={`text-[#000] font-bold font-Open_Sans mt-2 bg-[#FFD700] focus:ring-4 focus:outline-none rounded-xl xl:text-base 2xl:text-xl px-5 py-2.5 inline-flex justify-center text-center ${
                 el.id === plan_Number ? "opacity-50 cursor-not-allowed" : ""
               } ${!Address || !KYC ? "opacity-50 cursor-not-allowed" : ""}`}
               onClick={() => handlePlan(el.id, el.title, el.daily_Pool_Yield)}
@@ -88,7 +88,7 @@ function Card({ el }) {
             <button
               type="button"
               disabled={!Address || !KYC}
-              className={`text-[#000] font-bold font-gilroy mt-2 bg-[#FFD700] focus:outline-none rounded-xl xl:text-base 2xl:text-xl px-5 py-2.5 inline-flex justify-center text-center ${
+              className={`text-[#000] font-bold font-Open_Sans mt-2 bg-[#FFD700] focus:outline-none rounded-xl xl:text-base 2xl:text-xl px-5 py-2.5 inline-flex justify-center text-center ${
                 !Address || !KYC ? "opacity-50 cursor-not-allowed" : ""
               }`}
               onClick={() => handleNavigate(el.id)}
@@ -100,7 +100,7 @@ function Card({ el }) {
           <div className="w-full flex items-center">
             <button
               type="button"
-              className="text-[#000] font-semibold w-full opacity-70 cursor-not-allowed font-gilroy mt-2 bg-[#FFD700] rounded-xl xl:text-base 2xl:text-xl px-5 py-2.5 inline-flex justify-center text-center"
+              className="text-[#000] font-semibold w-full opacity-70 cursor-not-allowed font-Open_Sans mt-2 bg-[#FFD700] rounded-xl xl:text-base 2xl:text-xl px-5 py-2.5 inline-flex justify-center text-center"
             >
               Connect Your DeFi Wallet
             </button>

@@ -12,7 +12,9 @@ import Abi from "../../../ABI/Abi.json";
 const Card1 = () => {
   const [refAddress, setRefAddress] = useState("");
   const [loading, setLoading] = useState(false);
-  const [stakeAmount, setStakeAmount] = useState(0.1);
+  const [stakeAmount, setStakeAmount] = useState(null);
+  const [minInvestment, setMinInvestAmount] = useState(0);
+  const [maxInvestment, setMaxInvestAmount] = useState(0);
   const dispatch = useDispatch();
 
   const signatures = useSelector((state) => state.isSignChecked?.sign_hash);
@@ -31,7 +33,7 @@ const Card1 = () => {
     contractAbi,
     signer
   );
-  const [minamount, setMinAmount] = useState(null);
+
   const { REACT_APP_API_BASE_URL } = process.env;
 
   //global variable
@@ -42,41 +44,61 @@ const Card1 = () => {
   // for get the minumum amount
   useEffect(() => {
     const apiUrlMinAmount = `${REACT_APP_API_BASE_URL}/getMinInvestAmount`;
+    const apiUrlMaxAmount = `${REACT_APP_API_BASE_URL}/getMaxInvestAmount`;
     axios
       .get(apiUrlMinAmount)
       .then((response) => {
-        setMinAmount(response.data.minamount);
+        setMinInvestAmount(response.data.minamount);
+      })
+      .catch((error) => {
+        console.error("Error fetching data from the API:", error);
+      });
+
+    axios
+      .get(apiUrlMaxAmount)
+      .then((response) => {
+        setMaxInvestAmount(response.data.maxamount);
       })
       .catch((error) => {
         console.error("Error fetching data from the API:", error);
       });
   }, [stakeAmount]);
 
+  console.log("minInvestment...", minInvestment, maxInvestment);
+
   const handleStake = async (event) => {
     event.preventDefault();
     try {
       if (!Address || !refAddress || !plan_Number) {
-        Toast.warning("Invalid StakeAmount.");
+        Toast.warning("Please Fill All the Field.");
         return;
       }
-      if (plan_Number === 1) {
-        if (stakeAmount < 0.1 || stakeAmount > 1) {
-          Toast.warning("Invalid StakeAmount for pool one.");
-          return;
-        }
+
+      if (stakeAmount <= minInvestment || stakeAmount >= maxInvestment) {
+        Toast.warning(
+          `Please enter an amount between ${minInvestment} and ${maxInvestment}.`
+        );
+        return;
       }
-      if (plan_Number === 2) {
-        if (stakeAmount < 1 || stakeAmount > 5) {
-          Toast.warning("Invalid StakeAmount for pool two.");
-          return;
-        }
-      }
-      if (plan_Number === 3) {
-        if (stakeAmount < 5 || stakeAmount > 10) {
-          Toast.warning("Invalid StakeAmount for pool three.");
-          return;
-        }
-      }
+
+      // if (plan_Number === 1) {
+      //   if (stakeAmount < 0.1 || stakeAmount > 1) {
+      //     Toast.warning("Invalid StakeAmount for pool one.");
+      //     return;
+      //   }
+      //  }
+      // if (plan_Number === 2) {
+      //   if (stakeAmount < 1 || stakeAmount > 5) {
+      //     Toast.warning("Invalid StakeAmount for pool two.");
+      //     return;
+      //   }
+      // }
+      // if (plan_Number === 3) {
+      //   if (stakeAmount < 5 || stakeAmount > 10) {
+      //     Toast.warning("Invalid StakeAmount for pool three.");
+      //     return;
+      //   }
+      // }
       const stakeAmountnumber = stakeAmount.toString();
       const options = {
         value: ethers.utils.parseEther(stakeAmountnumber),
@@ -149,63 +171,63 @@ const Card1 = () => {
 
   useEffect(() => {
     if (plan_Number === 1) {
-      setStakeAmount(0.1);
+      setStakeAmount(minInvestment);
     } else if (plan_Number === 2) {
-      setStakeAmount(1);
+      setStakeAmount(minInvestment);
     } else {
-      setStakeAmount(5);
+      setStakeAmount(minInvestment);
     }
-  }, [plan_Number]);
+  }, [plan_Number, minInvestment]);
 
   return (
     <>
       <div className="flex justify-center">
         <div className="grid grid-cols-1 p-5 gap-4 w-full max-w-xl bg-white border border-gray-300 rounded-3xl shadow hover:brightness-100  from-black to-blue-500 dark:bg-gradient-to-b  dark:border-gray-700">
-          <h1 className="text-xl md:text-4xl font-bold text-left table-mi-head font-gilroy">
+          <h1 className="text-xl md:text-4xl font-bold text-left table-mi-head font-montserrat">
             PROFIT CALCULATOR
           </h1>
           <div className="table-calculator-wr">
             <div className="grid grid-cols-2 gap-4">
               <div className="calculator-block">
-                <div className="font-gilroy"> To Be Staking:</div>
-                <div className="text-lg md:text-2xl font-gilroy">
+                <div className="font-Open_Sans"> To Be Staking:</div>
+                <div className="text-lg md:text-2xl font-Open_Sans">
                   {stakeAmount > 0 ? stakeAmount : 0}{" "}
-                  <span className="text-teal-400 font-bold font-gilroy">
+                  <span className="text-teal-400 font-bold font-Open_Sans">
                     USDC
                   </span>
                 </div>
               </div>
               <div className="calculator-block">
-                <div className="calcul-head-text font-gilroy">
+                <div className="calcul-head-text font-Open_Sans">
                   Current Daily Profit:
                 </div>
-                <div className="text-lg md:text-2xl font-gilroy">
+                <div className="text-lg md:text-2xl font-Open_Sans">
                   {Current_Daily_Profit}{" "}
-                  <span className="text-teal-400 font-bold font-gilroy">
+                  <span className="text-teal-400 font-bold font-Open_Sans">
                     USDC per day
                   </span>
                 </div>
               </div>
               <div className="calculator-block">
-                <div className="calcul-head-text font-gilroy">
+                <div className="calcul-head-text font-Open_Sans">
                   Expected Days Until ROI:
                 </div>
-                <div className="text-lg md:text-2xl font-gilroy">
+                <div className="text-lg md:text-2xl font-Open_Sans">
                   {Expected_Days_until_ROI}{" "}
-                  <span className="text-teal-400 font-bold font-gilroy">
+                  <span className="text-teal-400 font-bold font-Open_Sans">
                     days
                   </span>
                 </div>
               </div>
               <div className="calculator-block">
-                <div className="calcul-head-text font-gilroy">
+                <div className="calcul-head-text font-Open_Sans">
                   Daily Pool Yield:
                 </div>
-                <div className="text-lg md:text-2xl font-gilroy">
+                <div className="text-lg md:text-2xl font-Open_Sans">
                   {/* {daily_Pool_Yield} */}
                   {daily_Pool_Yield ? daily_Pool_Yield : "0"}%{" "}
                   {/* {PerRate ? PerRate : "1"}%{" "} */}
-                  <span className="text-teal-400 font-bold font-gilroy">
+                  <span className="text-teal-400 font-bold font-Open_Sans">
                     per day
                   </span>
                 </div>
@@ -213,10 +235,12 @@ const Card1 = () => {
             </div>
           </div>
           <div className="calculator-text-wr pt-2 md:pt-6">
-            <div className="text-sm md:text-lg font-gilroy">
-              Enter Stake Amount (Min ={" "}
-              {plan_Number === 1 ? 0.1 : plan_Number === 2 ? 1 : 5}{" "}
-              <span className="text-teal-400 font-bold"> USDC</span>):
+            <div className="text-sm md:text-lg font-Open_Sans">
+              Enter Stake Amount (Min = ${minInvestment}{" "}
+              {/* {plan_Number === 1 ? 0.1 : plan_Number === 2 ? 1 : 5}{" "} */}
+              <span className="text-teal-400 font-bold">USDC</span> & Max = $
+              {maxInvestment}{" "}
+              <span className="text-teal-400 font-bold">USDC</span>):
             </div>
           </div>
 
@@ -228,7 +252,7 @@ const Card1 = () => {
                 id="ref_address"
                 value={refAddress}
                 onChange={(e) => setRefAddress(e.target.value)}
-                className="bg-gray-50 border font-gilroy text-black border-gray-300 text-sm rounded-3xl focus:ring-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border font-Open_Sans text-black border-gray-300 text-sm rounded-3xl focus:ring-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Referral Address"
                 required
               />
@@ -237,7 +261,7 @@ const Card1 = () => {
                 id="plan_number"
                 value={`Pool #${plan_Number}:${plan_Name}`}
                 readOnly
-                className="bg-gray-50 border font-gilroy swapInput text-black border-gray-300 text-sm rounded-3xl focus:ring-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border font-Open_Sans swapInput text-black border-gray-300 text-sm rounded-3xl focus:ring-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Pool Number & Name"
               />
               <input
@@ -248,7 +272,7 @@ const Card1 = () => {
                   const newValue = Math.max(0, e.target.value);
                   setStakeAmount(newValue);
                 }}
-                className="bg-gray-50 border font-gilroy swapInput text-black border-gray-300 text-sm rounded-3xl focus:ring-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border font-Open_Sans swapInput text-black border-gray-300 text-sm rounded-3xl focus:ring-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="0.1"
                 required
               />
@@ -261,7 +285,7 @@ const Card1 = () => {
                   disabled={
                     !Address || !plan_Number || !plan_Name || !daily_Pool_Yield
                   }
-                  className={`text-[#000] flex text-base lg:text-lg justify-center items-center font-bold font-gilroy bg-[#FFD700] hover:brightness-105 focus:outline-none rounded-full text- w-full py-2.5 text-center me-2 mb-2 ${
+                  className={`text-[#000] flex text-base lg:text-lg justify-center items-center font-bold font-Open_Sans bg-[#FFD700] hover:brightness-105 focus:outline-none rounded-full text- w-full py-2.5 text-center me-2 mb-2 ${
                     !Address ? "opacity-50" : ""
                   }`}
                 >

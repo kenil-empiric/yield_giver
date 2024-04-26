@@ -31,7 +31,7 @@ function NavSideBar({ show, setShow, SideNav, SocialIcon, handleLink }) {
                       className="w-24 h-10 md:h-14 lg:h-14 xl:h-12"
                     />
                     <p
-                      className="text-sm font-gilroy md:text-lg font-bold"
+                      className="text-sm font-montserrat md:text-lg font-bold"
                       style={{
                         lineHeight: "22px",
                       }}
@@ -42,7 +42,7 @@ function NavSideBar({ show, setShow, SideNav, SocialIcon, handleLink }) {
                 </Link>
               </div>
               <div className="w-[70%] m-auto flex flex-col justify-start mt-5">
-                <p className="text-lg pl-0 font-gilroy mb-4 text-slate-800 dark:text-slate-400">
+                <p className="text-lg pl-0 font-Open_Sans mb-4 text-slate-800 dark:text-slate-400">
                   Navigation
                 </p>
                 <ul>
@@ -54,7 +54,7 @@ function NavSideBar({ show, setShow, SideNav, SocialIcon, handleLink }) {
                             key={i}
                             className={`flex ${
                               i === 0 ? "block md:hidden" : ""
-                            } font-gilroy items-center gap-4 text-slate-800 dark:text-slate-200 text-xl md:text-2xl py-3 md:py-5 cursor-pointer hover:text-[#FFD700] hover:dark:text-[#FFD700]`}
+                            } font-Open_Sans items-center gap-4 text-slate-800 dark:text-slate-200 text-xl md:text-2xl py-3 md:py-5 cursor-pointer hover:text-[#FFD700] hover:dark:text-[#FFD700]`}
                             onClick={() => handleLink(item.path)}
                           >
                             <strong className="text-[#FFD700]">

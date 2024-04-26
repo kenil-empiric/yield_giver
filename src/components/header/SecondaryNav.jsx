@@ -148,7 +148,7 @@ function SecondaryNav() {
               </Link>
               <Link to={"/"} className="cursor-pointer">
                 <p
-                  className="text-sm font-gilroy md:text-lg font-bold"
+                  className="text-sm font-montserrat md:text-lg font-bold"
                   style={{
                     lineHeight: "22px",
                   }}
@@ -184,10 +184,10 @@ function SecondaryNav() {
                 onClick={() => {
                   setWalletShow(!Walletshow);
                 }}
-                className="flex items-center bg-[#FFD700] gap-1 hover:text-[#ffffff] font-semibold hover:bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 text-[#000] font-gilroy px-3 py-2 rounded-xl"
+                className="flex font-Open_Sans items-center bg-[#FFD700] gap-1 hover:text-[#ffffff] font-semibold hover:bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 text-[#000] font-gilroy px-3 py-2 rounded-xl"
               >
                 <IoWalletOutline className="text-2xl" />
-                <span className="hidden md:block font-gilroy">
+                <span className="hidden md:block font-Open_Sans">
                   {Address
                     ? `${Address.slice(0, 6)}....${Address.slice(-4)}`
                     : "Connect Wallet"}

@@ -12,7 +12,7 @@ const Heading = () => {
           style={{ backgroundImage: `url(${img})` }}
         >
           <div className="lg:px-5 flex flex-col items-start lg:gap-3 xl:gap-4 w-[60%] ">
-            <p className="font-medium font-montserrat text-left lg:text-4xl xl:text-5xl">
+            <p className="font-bold font-montserrat text-left lg:text-4xl xl:text-5xl">
               Supercharge Financial
               <span
                 className="text-teal-400 font-montserrat ml-2 font-bold"

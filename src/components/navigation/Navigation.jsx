@@ -10,7 +10,7 @@ import { FaMedium } from "react-icons/fa6";
 import { FaHome } from "react-icons/fa";
 import { IoBook } from "react-icons/io5";
 
-import logo from "../../assets/newlogo.png";
+import logo from "../../assets/logo.svg";
 import eth from "../../assets/Eth.png";
 import money from "../../assets/Money.png";
 
@@ -135,15 +135,19 @@ export const FooterLink = [
     path: "#",
   },
   {
-    title: "Browse Pools",
+    title: "Open App",
     path: "#",
   },
   {
-    title: "Create a Pool",
+    title: "Get Approved",
     path: "#",
   },
   {
-    title: "Stake GIV",
+    title: "Choose Pool",
+    path: "#",
+  },
+  {
+    title: "Learn More",
     path: "#",
   },
 ];
@@ -270,7 +274,7 @@ export const cardData = [
   {
     title: "Count Your DPY",
     img: money,
-    desc: "We focus on delivering a Daily Percentage Yield of at least 0.5%. That’s over 150% APY which gets many investors doubling their wealth fast!",
+    desc: `We focus on delivering a Daily Percentage Yield of at least 0.15%. That’s over 50% APY which gets many investors doubling their wealth fast!`,
   },
 ];
 
@@ -328,7 +332,7 @@ export const InnovateData = [
 export const Stakedata = [
   {
     title: "Annual Percentage Yield",
-    value: "253.53%",
+    value: "",
   },
   {
     title: "Investors",
@@ -336,7 +340,7 @@ export const Stakedata = [
   },
   {
     title: "Investment Options",
-    value: "5",
+    value: "",
   },
   {
     title: "Amount Invested",

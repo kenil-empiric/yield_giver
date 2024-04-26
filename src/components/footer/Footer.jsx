@@ -23,7 +23,7 @@ function Footer() {
                 </Link>
                 <Link to={"/"} className="cursor-pointer">
                   <p
-                    className="text-lg font-Open_Sans md:text-xl font-bold"
+                    className="text-lg font-Open_Sans md:text-xl text-[#FFD700] font-bold"
                     style={{
                       lineHeight: "25px",
                     }}
@@ -59,8 +59,8 @@ function Footer() {
                     <li
                       className={`${
                         i === 0
-                          ? "font-bold text-2xl md:text-4xl mb-2 font-Open_Sans"
-                          : "text-lg md:text-xl my-1 md:my-2 font-Open_Sans"
+                          ? "text-2xl md:text-4xl mb-2 font-Open_Sans font-bold"
+                          : "text-lg md:text-xl my-1 md:my-1 font-Open_Sans text-[#FFD700] font-bold"
                       }`}
                     >
                       {item.title}
