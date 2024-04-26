@@ -39,7 +39,7 @@ function Home() {
             style={{ fill: "url(#blue-gradient)" }}
             className="text-8xl md:text-9xl"
           />
-          <p className="text-2xl leading-7 md:text-4xl font-gilroy font-bold">
+          <p className="text-2xl leading-7 md:text-4xl font-montserrat font-bold">
           Stake to Earn Extraordinary Yield
           </p>
         </div>

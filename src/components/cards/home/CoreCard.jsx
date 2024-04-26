@@ -8,10 +8,10 @@ function CoreCard({ item }) {
           <img src={item.img} alt="logo.png" className="w-full h-full" />
         </div>
         <div className="px-5 pb-3 md:px-3 lg:px-4 xl:px-5">
-          <p className="text-xl md:text-lg lg:text-xl font-gilroy font-bold text-left leading-6 md:leading-5 lg:leading-6 pb-1">
+          <p className="text-xl md:text-lg lg:text-xl font-montserrat font-bold text-left leading-6 md:leading-5 lg:leading-6 pb-1">
             {item.title}
           </p>
-          <p className="w-full text-left m-auto font-gilroy md:text-sm lg:text-base leading-5 md:leading-4 lg:leading-5 xl:text-lg xl:leading-6">
+          <p className="w-full text-left m-auto font-Open_Sans md:text-sm lg:text-base leading-5 md:leading-4 lg:leading-5 xl:text-lg xl:leading-6">
             {item.desc}
           </p>
         </div>

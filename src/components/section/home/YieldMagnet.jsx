@@ -9,28 +9,28 @@ function YieldMagnet() {
           <img src={img1} alt="img.logo" className="lg:w-full lg:h-full" />
         </div>
         <div className="flex-col gap-1 text-center lg:w-[48%] flex lg:flex-col lg:gap-1 lg:text-left">
-          <p className="text-2xl font-gilroy text-left font-bold ">
+          <p className="text-2xl font-montserrat text-left font-bold ">
             Accelerate Your Financial Journey by Overcoming Roadblocks and
             Achieving Your Goals Sooner
           </p>
-          <p className="text-base font-gilroy text-left ">
+          <p className="text-base font-Open_Sans text-left ">
             Be a pioneer of generous High-Yield DeFi with strategies that
             drastically outperform the best of traditional options while
             offering iron-clad capital preservation.
           </p>
-          <p className="text-2xl font-gilroy text-left font-bold ">
+          <p className="text-2xl font-montserrat text-left font-bold ">
             Maximize Earnings and Donations
           </p>
-          <p className="text-base font-gilroy text-left ">
+          <p className="text-base font-Open_Sans text-left ">
             Harness the Power of Unprecedented Financial Growth to provide
             amazing opportunities for your family and Community. Because we
             understand the challenges of under-performing portfolios, we are
             committed to helping you grow both financially and philanthropicly.
           </p>
-          <p className="text-2xl font-gilroy text-left font-bold ">
+          <p className="text-2xl font-montserrat text-left font-bold ">
             Easily Invest, Safely Grow, Effortless Earn
           </p>
-          <p className="text-base font-gilroy text-left ">
+          <p className="text-base font-Open_Sans text-left ">
             Say goodbye to the stress of trading volatile digital assets. Access
             one of our top-performing fully-managed funds that deliver
             consistent results and measure the progress of your Givestor Journey
@@ -44,10 +44,10 @@ function YieldMagnet() {
             Take the first step towards a prosperous future for you and your
             loved ones.
           </p>
-          <p className="text-2xl font-gilroy text-left font-bold ">
+          <p className="text-2xl font-montserrat text-left font-bold ">
             Never worry about income again
           </p>
-          <p className="text-base font-gilroy text-left ">
+          <p className="text-base font-Open_Sans text-left ">
             Imagine… what would happen if you could safely multiply your
             Investment and income every year? What would you do if you could
             double your net worth year after year? <br /> How would it change you? How

@@ -23,7 +23,7 @@ function Footer() {
                 </Link>
                 <Link to={"/"} className="cursor-pointer">
                   <p
-                    className="text-lg font-gilroy md:text-xl font-bold"
+                    className="text-lg font-Open_Sans md:text-xl font-bold"
                     style={{
                       lineHeight: "25px",
                     }}
@@ -44,7 +44,7 @@ function Footer() {
                     >
                       <button
                         key={i}
-                        className="rounded-full dark:bg-white dark:text-black hover:bg-gradient-to-t from-blue-600 to-teal-400 hover:dark:text-slate-100 hover:bg-teal-300 hover:text-slate-100 p-2 text-3xl"
+                        className="rounded-full text-[#FFD700] hover:bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 p-2 text-3xl"
                       >
                         {item.icon}
                       </button>
@@ -59,8 +59,8 @@ function Footer() {
                     <li
                       className={`${
                         i === 0
-                          ? "font-bold text-2xl md:text-4xl mb-2 font-gilroy"
-                          : "text-lg md:text-xl my-1 md:my-2 font-gilroy"
+                          ? "font-bold text-2xl md:text-4xl mb-2 font-Open_Sans"
+                          : "text-lg md:text-xl my-1 md:my-2 font-Open_Sans"
                       }`}
                     >
                       {item.title}

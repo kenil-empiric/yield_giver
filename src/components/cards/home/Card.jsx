@@ -38,7 +38,7 @@ function Card({ el }) {
         >
           Pool #{el.id}: {el.title}
           <span>
-            <FaRegArrowAltCircleUp className="ml-1 xl:ml-3 text-1xl cursor-pointer text-teal-400 " />
+            <FaRegArrowAltCircleUp className="ml-1 xl:ml-3 text-1xl cursor-pointer text-[#FFD700] " />
           </span>
         </h5>
 
@@ -78,7 +78,7 @@ function Card({ el }) {
             <button
               type="button"
               disabled={el.id === plan_Number || !Address || !KYC}
-              className={`text-white font-gilroy mt-2 bg-gradient-to-r from-blue-600 to-teal-400 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-xl xl:text-base 2xl:text-xl px-5 py-2.5 inline-flex justify-center text-center ${
+              className={`text-[#000] font-bold font-gilroy mt-2 bg-[#FFD700] focus:ring-4 focus:outline-none rounded-xl xl:text-base 2xl:text-xl px-5 py-2.5 inline-flex justify-center text-center ${
                 el.id === plan_Number ? "opacity-50 cursor-not-allowed" : ""
               } ${!Address || !KYC ? "opacity-50 cursor-not-allowed" : ""}`}
               onClick={() => handlePlan(el.id, el.title, el.daily_Pool_Yield)}
@@ -88,7 +88,7 @@ function Card({ el }) {
             <button
               type="button"
               disabled={!Address || !KYC}
-              className={`text-white font-gilroy mt-2 bg-gradient-to-r from-blue-600 to-teal-400 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-xl xl:text-base 2xl:text-xl px-5 py-2.5 inline-flex justify-center text-center ${
+              className={`text-[#000] font-bold font-gilroy mt-2 bg-[#FFD700] focus:outline-none rounded-xl xl:text-base 2xl:text-xl px-5 py-2.5 inline-flex justify-center text-center ${
                 !Address || !KYC ? "opacity-50 cursor-not-allowed" : ""
               }`}
               onClick={() => handleNavigate(el.id)}
@@ -100,7 +100,7 @@ function Card({ el }) {
           <div className="w-full flex items-center">
             <button
               type="button"
-              className="text-white w-full opacity-90 cursor-not-allowed font-gilroy mt-2 bg-gradient-to-r from-blue-600 to-teal-400 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-xl xl:text-base 2xl:text-xl px-5 py-2.5 inline-flex justify-center text-center"
+              className="text-[#000] font-semibold w-full opacity-70 cursor-not-allowed font-gilroy mt-2 bg-[#FFD700] rounded-xl xl:text-base 2xl:text-xl px-5 py-2.5 inline-flex justify-center text-center"
             >
               Connect Your DeFi Wallet
             </button>

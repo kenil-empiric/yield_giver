@@ -19,7 +19,8 @@ function App() {
 
   useEffect(() => {
     const connectWallet = async () => {
-      const contractAddress = "0xfeD77efAC6E1583916dFe9903c702859747A1EdB";
+      const contractAddress = "0xfeD77efAC6E1583916dFe9903c702859747A1EdB"; //ETHEREUM TESTNET Contract address.
+      //const contractAddress = "0x6dB51068668BD60A2199b27eD354eBe8B7212284"; //BSC TESTNET Contract address.
       try {
         const { ethereum } = window;
         const provider = new ethers.providers.Web3Provider(ethereum);

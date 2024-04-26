@@ -162,19 +162,19 @@ function SecondaryNav() {
                 onClick={handleHome}
                 className="hidden md:block border-2 p-3 border-[#001450] bg-blue-900 hover:border-blue-600 rounded-2xl"
               >
-                <FaHome className="text-xl md:text-xl text-white" />
+                <FaHome className="text-xl md:text-xl text-[#FFD700]" />
               </button>
               <button className="hidden md:block border-2 p-3 border-[#001450] bg-blue-900 hover:border-blue-600 rounded-2xl">
-                <GrDocumentText className="text-xl md:text-xl text-white" />
+                <GrDocumentText className="text-xl md:text-xl text-[#FFD700]" />
               </button>
               <button
                 onClick={handleMode}
                 className="border-2 p-3 border-[#001450] bg-blue-900 hover:border-blue-500 rounded-2xl"
               >
                 {mode ? (
-                  <MdLightMode className="text-xl md:text-xl text-white" />
+                  <MdLightMode className="text-xl md:text-xl text-[#FFD700]" />
                 ) : (
-                  <MdDarkMode className="text-xl md:text-xl text-white" />
+                  <MdDarkMode className="text-xl md:text-xl text-[#FFD700]" />
                 )}
               </button>
             </div>
@@ -184,7 +184,7 @@ function SecondaryNav() {
                 onClick={() => {
                   setWalletShow(!Walletshow);
                 }}
-                className="flex items-center gap-1 bg-gradient-to-b from-blue-600 to-teal-400 font-gilroy px-3 py-2 rounded-xl text-[#ffffff]"
+                className="flex items-center bg-[#FFD700] gap-1 hover:text-[#ffffff] font-semibold hover:bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 text-[#000] font-gilroy px-3 py-2 rounded-xl"
               >
                 <IoWalletOutline className="text-2xl" />
                 <span className="hidden md:block font-gilroy">

@@ -172,7 +172,7 @@ function Pool() {
   return (
     <>
       <div className="container mx-auto lg:py-28">
-        <p className="m-auto w-[95%] md:w-full pl-2.5 md:pl-5 text-2xl md:text-3xl lg:text-5xl font-gilroy font-bold pt-24 md:pt-28 lg:pt-5 2xl:pt-16">
+        <p className="m-auto w-[95%] md:w-full pl-2.5 md:pl-5 text-2xl md:text-3xl lg:text-5xl font-montserrat font-bold pt-24 md:pt-28 lg:pt-5 2xl:pt-16">
           Diversified Fund Pools
         </p>
         <div className="w-full mt-8 md:mt-10 lg:mt-14 xl:mt-16">

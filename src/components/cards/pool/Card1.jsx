@@ -56,7 +56,7 @@ const Card1 = () => {
     event.preventDefault();
     try {
       if (!Address || !refAddress || !plan_Number) {
-        Toast.warning("Invalid refAddress or planNumber.");
+        Toast.warning("Invalid StakeAmount.");
         return;
       }
       if (plan_Number === 1) {
@@ -78,7 +78,10 @@ const Card1 = () => {
         }
       }
       const stakeAmountnumber = stakeAmount.toString();
-      const options = { value: ethers.utils.parseEther(stakeAmountnumber) };
+      const options = {
+        value: ethers.utils.parseEther(stakeAmountnumber),
+        // gasLimit: "1000",
+      };
       const isChecked =
         signatures &&
         signatures?.filter(
@@ -232,7 +235,7 @@ const Card1 = () => {
               <input
                 type="text"
                 id="plan_number"
-                value={`${plan_Number} & ${plan_Name}`}
+                value={`Pool #${plan_Number}:${plan_Name}`}
                 readOnly
                 className="bg-gray-50 border font-gilroy swapInput text-black border-gray-300 text-sm rounded-3xl focus:ring-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Pool Number & Name"
@@ -258,7 +261,7 @@ const Card1 = () => {
                   disabled={
                     !Address || !plan_Number || !plan_Name || !daily_Pool_Yield
                   }
-                  className={`text-white flex text-base lg:text-lg justify-center items-center font-bold font-gilroy bg-gradient-to-b from-blue-500 to-teal-400 hover:brightness-105 focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-full text- w-full py-2.5 text-center me-2 mb-2 ${
+                  className={`text-[#000] flex text-base lg:text-lg justify-center items-center font-bold font-gilroy bg-[#FFD700] hover:brightness-105 focus:outline-none rounded-full text- w-full py-2.5 text-center me-2 mb-2 ${
                     !Address ? "opacity-50" : ""
                   }`}
                 >

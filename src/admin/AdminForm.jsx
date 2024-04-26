@@ -215,7 +215,7 @@ function AdminForm() {
               />
               <button
                 type="button"
-                className="flex justify-center items-center bg-gradient-to-b font-gilroy from-blue-600 to-teal-400 text-white font-bold py-2 px-3 rounded mt-2 w-full"
+                className="flex justify-center items-center bg-[#FFD700] font-gilroy text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
                 onClick={() => handleSubmit("Daily_Pool_One_Yield")}
               >
                 {loadingOne ? (
@@ -253,7 +253,7 @@ function AdminForm() {
               />
               <button
                 type="button"
-                className="flex justify-center items-center bg-gradient-to-b font-gilroy from-blue-600 to-teal-400 text-white font-bold py-2 px-3 rounded mt-2 w-full"
+                className="flex justify-center items-center bg-[#FFD700] font-gilroy text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
                 onClick={() => handleSubmit("Daily_Pool_Two_Yield")}
               >
                 {loadingTwo ? (
@@ -291,7 +291,7 @@ function AdminForm() {
               />
               <button
                 type="button"
-                className="flex justify-center items-center bg-gradient-to-b font-gilroy from-blue-600 to-teal-400 text-white font-bold py-2 px-3 rounded mt-2 w-full"
+                className="flex justify-center items-center bg-[#FFD700] font-gilroy text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
                 onClick={() => handleSubmit("Daily_Pool_Three_Yield")}
               >
                 {loadingThree ? (
@@ -329,7 +329,7 @@ function AdminForm() {
               />
               <button
                 type="button"
-                className="flex justify-center items-center bg-gradient-to-b from-blue-600 to-teal-400 font-gilroy text-white font-bold py-2 px-3 rounded mt-2 w-full"
+                className="flex justify-center items-center bg-[#FFD700] font-gilroy text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
                 onClick={() => handleSubmit("Daily_Pool_One_Yield_Period")}
               >
                 {loadingFour ? (
@@ -367,7 +367,7 @@ function AdminForm() {
               />
               <button
                 type="button"
-                className="flex justify-center items-center bg-gradient-to-b from-blue-600 to-teal-400 font-gilroy text-white font-bold py-2 px-3 rounded mt-2 w-full"
+                className="flex justify-center items-center bg-[#FFD700] font-gilroy text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
                 onClick={() => handleSubmit("Daily_Pool_Two_Yield_Period")}
               >
                 {loadingFive ? (
@@ -405,7 +405,7 @@ function AdminForm() {
               />
               <button
                 type="button"
-                className="flex justify-center items-center bg-gradient-to-b from-blue-600 to-teal-400 font-gilroy text-white font-bold py-2 px-3 rounded mt-2 w-full"
+                className="flex justify-center items-center bg-[#FFD700] font-gilroy text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
                 onClick={() => handleSubmit("Daily_Pool_Three_Yield_Period")}
               >
                 {loadingSix ? (
@@ -445,7 +445,7 @@ function AdminForm() {
               />
               <button
                 type="button"
-                className="flex justify-center items-center bg-gradient-to-b font-gilroy from-blue-600 to-teal-400 text-white font-bold py-2 px-3 rounded mt-2 w-full"
+                className="flex justify-center items-center bg-[#FFD700] font-gilroy text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
                 onClick={() => handleSubmit("Minimum_Investment")}
               >
                 {loadingSeven ? (
@@ -483,7 +483,7 @@ function AdminForm() {
               />
               <button
                 type="button"
-                className="bg-gradient-to-b flex justify-center items-center font-gilroy from-blue-600 to-teal-400 text-white font-bold py-2 px-3 rounded mt-2 w-full"
+                className="bg-[#FFD700] flex justify-center items-center font-gilroy text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
                 onClick={() => handleSubmit("Maximum_Investment")}
               >
                 {loadingEight ? (

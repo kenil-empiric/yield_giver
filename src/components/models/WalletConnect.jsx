@@ -54,7 +54,7 @@ function WalletConnect({
               </div>
               {userAddress ? (
                 <div className="mt-8 md:mt-10 p-2">
-                  <div className="text-xl dark:text-[#ffffff] hover:border-[#ffffff] dark:border-blue-900 hover:text-[#ffffff] mb-3 font-gilroy font-bold flex items-center gap-1 w-[90%] md:w-full lg:w-[85%] m-auto justify-center hover:dark:bg-blue-950 hover:bg-gradient-to-bl from-blue-600 to-teal-400 border rounded-md border-blue-900 p-2">
+                  <div className="text-xl text-[#000] dark:text-[#ffffff] hover:border-[#ffffff] dark:border-blue-900 hover:text-[#ffffff] mb-3 font-gilroy font-bold flex items-center gap-1 w-[90%] md:w-full lg:w-[85%] m-auto justify-center hover:dark:bg-blue-950 hover:bg-gradient-to-bl from-blue-600 to-teal-400 border rounded-md border-blue-900 p-2">
                     <p>
                       {userAddress &&
                         `${userAddress.slice(0, 6)}....${userAddress.slice(
@@ -73,7 +73,7 @@ function WalletConnect({
                     </button>
                     <FaPowerOff
                       onClick={handleDisconnect}
-                      className="text-2xl lg:text-4xl cursor-pointer dark:text-[#ffffff] text-teal-400 hover:text-[#ffffff]"
+                      className="text-2xl lg:text-4xl cursor-pointer text-[#FFD700] hover:text-[#ffffff]"
                     />
                   </div>
                 </div>

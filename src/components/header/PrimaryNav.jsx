@@ -78,7 +78,7 @@ function PrimaryNav() {
               </div>
               <div>
                 <Link to={"/pool"}>
-                  <button className="bg-gradient-to-b from-blue-600 to-teal-400 font-gilroy px-3 py-2 rounded-xl text-[#ffffff]">
+                  <button className="bg-[#FFD700] font-semibold hover:text-[#ffffff] hover:bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 font-gilroy px-3 py-2 rounded-xl text-[#000]">
                     Launch dApp
                   </button>
                 </Link>

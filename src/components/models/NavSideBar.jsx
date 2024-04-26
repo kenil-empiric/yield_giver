@@ -54,10 +54,12 @@ function NavSideBar({ show, setShow, SideNav, SocialIcon, handleLink }) {
                             key={i}
                             className={`flex ${
                               i === 0 ? "block md:hidden" : ""
-                            } font-gilroy items-center gap-4 text-slate-800 dark:text-slate-200 text-xl md:text-2xl py-3 md:py-5 cursor-pointer hover:dark:text-teal-300 hover:text-teal-300`}
+                            } font-gilroy items-center gap-4 text-slate-800 dark:text-slate-200 text-xl md:text-2xl py-3 md:py-5 cursor-pointer hover:text-[#FFD700] hover:dark:text-[#FFD700]`}
                             onClick={() => handleLink(item.path)}
                           >
-                            {item.icon}
+                            <strong className="text-[#FFD700]">
+                              {item.icon}
+                            </strong>
                             {item.title}
                           </li>
                         )
@@ -70,7 +72,7 @@ function NavSideBar({ show, setShow, SideNav, SocialIcon, handleLink }) {
                 SocialIcon?.map((item, i) => (
                   <button
                     key={i}
-                    className="rounded-full hover:bg-teal-300 hover:text-slate-100 p-3 text-2xl"
+                    className="rounded-full text-[#FFD700] hover:bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 hover:text-slate-100 p-3 text-2xl"
                   >
                     {item.icon}
                   </button>

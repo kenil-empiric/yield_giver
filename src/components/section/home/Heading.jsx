@@ -11,11 +11,11 @@ const Heading = () => {
           className="hidden lg:block lg:w-full mx-auto pt-36 bg-cover bg-center bg-no-repeat overflow-visible"
           style={{ backgroundImage: `url(${img})` }}
         >
-          <div className=" lg:px-5  flex flex-col items-start lg:gap-3 xl:gap-4 w-1/2 ">
-            <p className="font-medium font-gilroy text-left lg:text-4xl xl:text-5xl">
+          <div className="lg:px-5 flex flex-col items-start lg:gap-3 xl:gap-4 w-[60%] ">
+            <p className="font-medium font-montserrat text-left lg:text-4xl xl:text-5xl">
               Supercharge Financial
               <span
-                className="text-teal-400 font-gilroy ml-2 font-bold"
+                className="text-teal-400 font-montserrat ml-2 font-bold"
                 style={{
                   background: "linear-gradient(to right, #35cdc2, #236de7)",
                   WebkitBackgroundClip: "text",
@@ -25,9 +25,9 @@ const Heading = () => {
                 Growth
               </span>
             </p>
-            <p className="text-left font-gilroy lg:text-5xl xl:text-6xl font-bold ">
+            <p className="text-left font-montserrat lg:text-5xl xl:text-6xl font-bold ">
               <span
-                className="mr-2 text-teal-400 font-gilroy font-bold"
+                className="mr-2 text-teal-400 font-montserrat font-bold"
                 style={{
                   background: "linear-gradient(to right, #35cdc2, #236de7)",
                   WebkitBackgroundClip: "text",
@@ -38,10 +38,10 @@ const Heading = () => {
               </span>
               Your Profits Weekly
             </p>
-            <p className="text-left font-gilroy text-2xl ">
+            <p className="text-left font-Open_Sans text-2xl ">
               Looking for a faster financial vehicle you can rely upon?
             </p>
-            <p className="text-left font-gilroy lg:text-base xl:text-xl 2xl:text-2xl ">
+            <p className="text-left font-Open_Sans lg:text-base xl:text-xl 2xl:text-2xl">
               Plug into strategically diversified Wealth Accelerators. Through
               decades of financial research, testing, and investing we provide
               access to the most innovative, generous, and safest investment
@@ -52,22 +52,21 @@ const Heading = () => {
               experience the rush of explosive daily earnings!
             </p>
             <Link className="mt-4 cursor-pointer" to="/pool">
-              <button className="rounded-xl font-gilroy lg:p-3 lg:text-lg xl:p-4 xl:text-xl text-[#ffffff] bg-gradient-to-b from-blue-600 to-teal-400">
+              <button className="rounded-xl font-semibold font-Open_Sans lg:p-3 lg:text-lg xl:p-3 xl:text-xl text-[#000] bg-[#FFD700] hover:text-[#ffffff] hover:bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600">
                 Launch dApp
               </button>
             </Link>
           </div>
         </div>
-
         <div>
           <div className="lg:hidden w-full p-2">
             <img src={img2} alt="mobile.png" className="w-full h-full" />
           </div>
           <div className="w-[90%] lg:hidden m-auto flex flex-col">
-            <p className="text-2xl font-gilroy text-left font-medium ">
+            <p className="text-2xl font-montserrat text-left font-medium ">
               Supercharge Financial
               <span
-                className="text-teal-400 font-gilroy ml-2 font-bold"
+                className="text-teal-400 font-montserrat ml-2 font-bold"
                 style={{
                   background: "linear-gradient(to right, #35cdc2, #236de7)",
                   WebkitBackgroundClip: "text",
@@ -77,9 +76,9 @@ const Heading = () => {
                 Growth
               </span>
             </p>
-            <p className="text-4xl text-left font-gilroy font-bold ">
+            <p className="text-4xl text-left font-montserrat font-bold ">
               <span
-                className="text-teal-400 font-gilroy mr-2 font-bold"
+                className="text-teal-400 font-montserrat mr-2 font-bold"
                 style={{
                   background: "linear-gradient(to right, #35cdc2, #236de7)",
                   WebkitBackgroundClip: "text",
@@ -90,10 +89,10 @@ const Heading = () => {
               </span>
               Your Profits Weekly
             </p>
-            <p className="text-xl font-gilroy text-left ">
+            <p className="text-xl font-Open_Sans text-left ">
               Looking for a faster financial vehicle you can rely upon?
             </p>
-            <p className="text-base font-gilroy text-left ">
+            <p className="text-base font-Open_Sans text-left ">
               Plug into strategically diversified Wealth Accelerators. Through
               decades of financial research, testing, and investing we provide
               access to the most innovative, generous, and safest investment
@@ -104,7 +103,7 @@ const Heading = () => {
               experience the rush of explosive daily earnings!
             </p>
             <a className="mt-4 cursor-pointer" href="">
-              <button className="rounded-xl font-gilroy text-base text-[#ffffff] px-3 py-3 lg:p-4 lg:text-xl bg-gradient-to-r from-blue-600 to-teal-400">
+              <button className="rounded-xl font-Open_Sans text-base text-[#000] px-3 py-3 lg:p-4 lg:text-xl bg-[#FFD700]">
                 Launch dApp
               </button>
             </a>

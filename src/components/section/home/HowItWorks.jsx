@@ -7,10 +7,10 @@ function HowItWorks() {
   return (
     <>
       <div className="w-full mt-16 md:mt-20">
-        <p className="text-2xl text-left px-6 md:px-8 lg:px-0 lg:text-center md:text-4xl font-gilroy font-bold">
+        <p className="text-2xl text-left px-6 md:px-8 lg:px-0 lg:text-center md:text-4xl font-montserrat font-bold">
           How Does This Work?
         </p>
-        <div className="w-full text-left md:w-full px-6 md:px-8 lg:w-[95%] xl:w-[90%] 2xl:w-[80%] m-auto mt-4 lg:mt-5 xl:px-0 2xl:px-4 font-gilroy md:text-lg lg:text-center font-semibold md:leading-6">
+        <div className="w-full text-left md:w-full px-6 md:px-8 lg:w-[95%] xl:w-[90%] 2xl:w-[80%] m-auto mt-4 lg:mt-5 xl:px-0 2xl:px-4 font-Open_Sans md:text-lg lg:text-center font-semibold md:leading-6">
           Yield Giver is a Generosity-first platform that helps charitable
           directors and humanitarian charities to multiply their donations
           through industry-leading investment techniques that are only available

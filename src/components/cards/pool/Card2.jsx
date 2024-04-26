@@ -220,7 +220,7 @@ const Card2 = ({ Percentage }) => {
                   onClick={HandleWithdraw}
                   type="button"
                   disabled={!Address}
-                  className={`text-white flex justify-center items-center p-2.5 font-gilroy font-bold text-xs lg:text-base xl:text-xl bg-gradient-to-b from-blue-500 to-teal-400 hover:brightness-105 focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-full w-full text-center ${
+                  className={`text-[#000] flex justify-center items-center p-2.5 font-gilroy font-bold text-xs lg:text-base xl:text-xl bg-[#FFD700] hover:brightness-105 focus:outline-none rounded-full w-full text-center ${
                     !Address ? "opacity-50" : ""
                   }`}
                 >
@@ -244,7 +244,7 @@ const Card2 = ({ Percentage }) => {
             <button
               onClick={WithdrawPrin}
               type="button"
-              className="text-white font-gilroy text-sm lg:text-base xl:text-xl font-bold  from-blue-500 to-teal-400 bg-gradient-to-b focus:outline-none focus:ring-4 focus:ring-blue-300  rounded-full  w-full py-4 text-center me-2 mb-0 dark:bg-yellow-500 dark:hover:bg-yellow-600 dark:focus:ring-blue-800"
+              className="text-[#000] font-gilroy text-sm lg:text-base xl:text-xl font-bold bg-[#FFD700] focus:outline-none rounded-full w-full py-4 text-center me-2 mb-0"
             >
               WITHDRAW PRINCIPAL
             </button>

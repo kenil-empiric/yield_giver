@@ -8,10 +8,10 @@ function WorksCard({ item }) {
           <img src={item.img} alt="logo.png" className="w-full h-full" />
         </div>
         <div className="text-left pb-3 md:pb-0 px-5 md:px-4 lg:px-2 xl:px-3 lg:text-center">
-          <p className="text-2xl md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-gilroy font-bold">
+          <p className="text-2xl md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-montserrat font-bold">
             {item.title}
           </p>
-          <p className="font-gilroy text-base lg:text-lg font-semibold leading-5 md:leading-5 lg:leading-6 pt-1 2xl:mt-1">
+          <p className="font-Open_Sans text-base lg:text-lg font-semibold leading-5 md:leading-5 lg:leading-6 pt-1 2xl:mt-1">
             {item.desc}
           </p>
         </div>

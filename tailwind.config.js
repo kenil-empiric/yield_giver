@@ -5,7 +5,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        gilroy: ["Gilroy", "sans-serif"],
+        // gilroy: ["Gilroy", "sans-serif"],
+        montserrat: ["Montserrat", "Helvetica, Arial, Lucida, sans-serif"],
+        Open_Sans: ["Open Sans", "Helvetica, Arial, Lucida, sans-serif"],
       },
     },
   },

@@ -13,14 +13,14 @@ function InnovateCards({ item }) {
           />
         </div>
         <div className="text-left pb-3 md:pb-0 px-2 xl:px-3">
-          <p className="text-xl md:text-base lg:text-xl font-gilroy font-bold leading-6 md:leading-5 lg:leading-6 pb-1">
+          <p className="text-xl md:text-base lg:text-xl font-montserrat font-bold leading-6 md:leading-5 lg:leading-6 pb-1">
             {item.title}
           </p>
-          <p className="w-full m-auto font-gilroy md:text-sm lg:text-base leading-5 md:leading-4 lg:leading-5 xl:text-lg xl:leading-6">
+          <p className="w-full m-auto font-Open_Sans md:text-sm lg:text-base leading-5 md:leading-4 lg:leading-5 xl:text-lg xl:leading-6">
             {item.desc}
           </p>
           <div className="w-full text-base md:text-sm lg:text-base flex xl:text-xl place-items-start justify-items-start text-teal-600 font-bold">
-            <button className="flex p-1 font-gilroy items-center gap-2 justify-center opacity-60 dark:opacity-90">
+            <button className="flex p-1 font-Open_Sans items-center gap-2 justify-center opacity-60 dark:opacity-90">
               See More
               <span>
                 <FaArrowRightLong className="text-base md:text-lg" />
