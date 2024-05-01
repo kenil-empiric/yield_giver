@@ -332,7 +332,7 @@ export const InnovateData = [
 export const Stakedata = [
   {
     title: "Annual Percentage Yield",
-    value: "",
+    value: "51.35%",
   },
   {
     title: "Investors",
@@ -340,7 +340,7 @@ export const Stakedata = [
   },
   {
     title: "Investment Options",
-    value: "",
+    value: "3",
   },
   {
     title: "Amount Invested",

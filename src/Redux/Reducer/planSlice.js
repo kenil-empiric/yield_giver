@@ -24,3 +24,4 @@ export const PlanSlice = createSlice({
 
 export const { setPlanData, setDailyPoolYield } = PlanSlice.actions;
 export default PlanSlice.reducer;
+

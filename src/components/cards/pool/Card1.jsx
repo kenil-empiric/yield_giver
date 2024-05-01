@@ -64,7 +64,7 @@ const Card1 = () => {
       });
   }, [stakeAmount]);
 
-  console.log("minInvestment...", minInvestment, maxInvestment);
+  // console.log("minInvestment...", minInvestment, maxInvestment);
 
   const handleStake = async (event) => {
     event.preventDefault();
@@ -74,7 +74,7 @@ const Card1 = () => {
         return;
       }
 
-      if (stakeAmount <= minInvestment || stakeAmount >= maxInvestment) {
+      if (stakeAmount < minInvestment || stakeAmount > maxInvestment) {
         Toast.warning(
           `Please enter an amount between ${minInvestment} and ${maxInvestment}.`
         );
@@ -152,9 +152,11 @@ const Card1 = () => {
         }
       }
     } catch (error) {
-      console.error("Error staking:", error);
+      console.error("Error staking:", error.message);
       setLoading(false);
-      Toast.error("Something went wrong while staking the amount.");
+      const ErrorMessage= error.message.split(/(?:\(|,|{|^|\[)/)[0].trim();
+      console.log(ErrorMessage);
+      Toast.error(ErrorMessage);
     }
   };
 
