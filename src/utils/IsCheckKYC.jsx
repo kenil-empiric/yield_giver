@@ -1,4 +1,3 @@
-import React from "react";
 import { isKYCData } from "../Redux/Reducer/isKYCCheck";
 import axios from "axios";
 import { Toast } from "./toast";

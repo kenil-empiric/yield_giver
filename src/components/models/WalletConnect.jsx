@@ -14,6 +14,7 @@ function WalletConnect({
   userAddress,
   userBalance,
   handleDisconnect,
+  UserUSDC,
 }) {
   const [copyIcon, setCopyIcon] = useState({ icon: IoCopyOutline });
 
@@ -54,7 +55,7 @@ function WalletConnect({
               </div>
               {userAddress ? (
                 <div className="mt-8 md:mt-10 p-2">
-                  <div className="text-xl font-Open_Sans text-[#000] dark:text-[#ffffff] hover:border-[#ffffff] dark:border-blue-900 hover:text-[#ffffff] mb-3 font-gilroy font-bold flex items-center gap-1 w-[90%] md:w-full lg:w-[85%] m-auto justify-center hover:dark:bg-blue-950 hover:bg-gradient-to-bl from-blue-600 to-teal-400 border rounded-md border-blue-900 p-2">
+                  <div className="text-xl font-Open_Sans text-[#000] dark:text-[#ffffff] hover:border-[#ffffff] dark:border-blue-900 hover:text-[#ffffff] mb-3 font-gilroy font-bold flex items-center gap-1 w-[90%] md:w-full lg:w-[85%] m-auto justify-center hover:dark:bg-blue-950 hover:bg-gradient-to-bl from-blue-600 to-teal-400 border rounded-md border-blue-900 p-4">
                     <p>
                       {userAddress &&
                         `${userAddress.slice(0, 6)}....${userAddress.slice(
@@ -67,14 +68,28 @@ function WalletConnect({
                       userAddress={userAddress}
                     />
                   </div>
-                  <div className="w-[90%] dark:text-[#ffffff] hover:text-[#ffffff] hover:dark:border-blue-900 hover:border-[#ffffff] md:w-full lg:w-[85%] m-auto flex items-center justify-center hover:bg-blue-950 hover:bg-gradient-to-bl from-blue-600 to-teal-400 border rounded-md border-blue-900 gap-6 md:justify-evenly p-2">
-                    <button className="py-4 px-6 md:p-4 bg-transparent rounded-xl text-sm md:text-lg font-bold font-Open_Sans">
-                      {userBalance && Number(userBalance)?.toFixed(4)} ETH
+                  <div className="w-[90%] mt-3 dark:text-[#ffffff] hover:text-[#ffffff] hover:dark:border-blue-900 hover:border-[#ffffff] md:w-full lg:w-[85%] m-auto flex items-center justify-center hover:bg-blue-950 hover:bg-gradient-to-bl from-blue-600 to-teal-400 border rounded-md border-blue-900 gap-6 md:justify-evenly p-2">
+                    <button className="py-4 px-6 md:p-2 bg-transparent rounded-xl text-sm md:text-lg font-bold font-Open_Sans">
+                      {UserUSDC && Number(UserUSDC)?.toFixed(4)}{" "}
+                      <span className="text-[#FFD700] font-Open_Sans">
+                        USDC
+                      </span>
                     </button>
-                    <FaPowerOff
+                  </div>
+                  <div className="w-[90%] mt-3 dark:text-[#ffffff] hover:text-[#ffffff] hover:dark:border-blue-900 hover:border-[#ffffff] md:w-full lg:w-[85%] m-auto flex items-center justify-center hover:bg-blue-950 hover:bg-gradient-to-bl from-blue-600 to-teal-400 border rounded-md border-blue-900 gap-6 md:justify-evenly p-2">
+                    <button className="py-4 px-6 md:p-2 bg-transparent rounded-xl text-sm md:text-lg font-bold font-Open_Sans">
+                      {userBalance && Number(userBalance)?.toFixed(4)}{" "}
+                      <span className="text-[#FFD700] font-Open_Sans">ETH</span>
+                    </button>
+                  </div>
+                  <div className="w-[90%] mt-3 dark:text-[#ffffff] hover:text-[#ffffff] hover:dark:border-blue-900 hover:border-[#ffffff] md:w-full lg:w-[85%] m-auto flex items-center justify-center hover:bg-blue-950 hover:bg-gradient-to-bl from-blue-600 to-teal-400 border rounded-md border-blue-900 gap-6 md:justify-evenly p-2">
+                    <button
                       onClick={handleDisconnect}
-                      className="text-2xl lg:text-4xl cursor-pointer text-[#FFD700] hover:text-[#ffffff]"
-                    />
+                      className="flex gap-3 items-center justify-center py-4 px-6 md:p-2 bg-transparent rounded-xl text-sm md:text-lg font-bold font-Open_Sans"
+                    >
+                      Disconnect
+                      <FaPowerOff className="text-2xl lg:text-3xl cursor-pointer text-[#FFD700] hover:text-[#ffffff]" />
+                    </button>
                   </div>
                 </div>
               ) : (

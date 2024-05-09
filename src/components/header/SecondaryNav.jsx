@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { MdDarkMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
 import logo from "../../assets/logo.svg";
@@ -20,6 +20,7 @@ import NavSideBar from "../models/NavSideBar";
 import { isKYCData } from "../../Redux/Reducer/isKYCCheck";
 import { fetchFormData } from "../../utils/IsCheckKYC";
 import { setAdmin } from "../../Redux/Reducer/isAdminSlice";
+import USDCABI from "../../BNBABI/Abi.json";
 
 function SecondaryNav() {
   const [show, setShow] = useState(false);
@@ -29,8 +30,10 @@ function SecondaryNav() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const data = useSelector((state) => state.isSignChecked?.sign_hash);
-  const { Address, balance } = useSelector((state) => state?.walletDetails);
-  const { REACT_APP_ADMIN_ADDRESS } = process.env;
+  const { Address, balance, USDC } = useSelector(
+    (state) => state?.walletDetails
+  );
+  const { REACT_APP_ADMIN_ADDRESS, REACT_APP_USDC_ADDRESS } = process.env;
 
   useEffect(() => {
     if (mode) {
@@ -105,7 +108,16 @@ function SecondaryNav() {
       const signer = provider.getSigner(newAccount);
       const balance = await signer.getBalance();
       const userBalance = ethers.utils.formatEther(balance);
-      dispatch(walletData({ address: newAccount, balance: userBalance }));
+      const usdcContract = new ethers.Contract(
+        REACT_APP_USDC_ADDRESS,
+        USDCABI,
+        signer
+      );
+      const USDCBalance = await usdcContract.balanceOf(newAccount);
+      const USDC = (USDCBalance / 10 ** 6).toString();
+      dispatch(
+        walletData({ address: newAccount, balance: userBalance, USDC: USDC })
+      );
       fetchFormData(dispatch, newAccount);
     }
   };
@@ -114,7 +126,7 @@ function SecondaryNav() {
     try {
       dispatch(Log_Out());
       dispatch(isKYCData(false));
-      dispatch(walletData({ address: "", balance: 0 }));
+      dispatch(walletData({ address: "", balance: 0, USDC: 0 }));
       dispatch(setAdmin(false));
       setTimeout(() => {
         setWalletShow(false);
@@ -222,6 +234,7 @@ function SecondaryNav() {
         handleWallet={handleWallet}
         userAddress={Address}
         userBalance={balance}
+        UserUSDC={USDC}
         handleDisconnect={handleDisconnect}
       />
     </>

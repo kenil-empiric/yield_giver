@@ -11,15 +11,20 @@ import { ToastComponent } from "./utils/toast";
 import { Sign_Data } from "./Redux/Reducer/isSignCheck";
 import { fetchFormData } from "./utils/IsCheckKYC";
 import { setAdmin } from "./Redux/Reducer/isAdminSlice";
+import USDCABI from "./BNBABI/Abi.json";
 
 function App() {
   const dispatch = useDispatch();
   const path = useLocation().pathname;
-  const { REACT_APP_ADMIN_ADDRESS } = process.env;
+  const {
+    REACT_APP_ADMIN_ADDRESS,
+    REACT_APP_CONTRACT_ADDRESS,
+    REACT_APP_USDC_ADDRESS,
+  } = process.env;
 
   useEffect(() => {
     const connectWallet = async () => {
-      const contractAddress = "0xfeD77efAC6E1583916dFe9903c702859747A1EdB"; //ETHEREUM TESTNET Contract address.
+      const contractAddress = REACT_APP_CONTRACT_ADDRESS; //ETHEREUM TESTNET Contract address.
       //const contractAddress = "0x6dB51068668BD60A2199b27eD354eBe8B7212284"; //BSC TESTNET Contract address.
       try {
         const { ethereum } = window;
@@ -49,7 +54,21 @@ function App() {
           const signer = provider.getSigner(newAccount);
           const balance = await signer.getBalance();
           const userBalance = ethers.utils.formatEther(balance);
-          dispatch(walletData({ address: newAccount, balance: userBalance }));
+          const usdcContract = new ethers.Contract(
+            REACT_APP_USDC_ADDRESS,
+            USDCABI,
+            signer
+          );
+          const USDCBalance = await usdcContract.balanceOf(newAccount);
+          const USDC = (USDCBalance / 10 ** 6).toString();
+          console.log("balance of usdc", (USDCBalance / 10 ** 6).toString());
+          dispatch(
+            walletData({
+              address: newAccount,
+              balance: userBalance,
+              USDC: USDC,
+            })
+          );
           fetchFormData(dispatch, newAccount);
           dispatch(Sign_Data([]));
         }

@@ -6,7 +6,7 @@ import { Oval } from "react-loader-spinner";
 import FetchBalance from "../../../utils/FetchBalance";
 import Abi from "../../../ABI/Abi.json";
 
-const Card2 = ({ Percentage }) => {
+const Card2 = ({ Percentage, loading }) => {
   const { planOneMultiplier, planTwoMultiplier, planThreeMultiplier } =
     Percentage;
   const [Investment, setInvestment] = useState(0.0);
@@ -17,7 +17,7 @@ const Card2 = ({ Percentage }) => {
   const [stakingValue, setStakingValue] = useState([]);
   const [referral, setReferral] = useState(0);
   // const [WithdrawAmount, setWithdrawAmount] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [load, setLoad] = useState(false);
   const dispatch = useDispatch();
   const { signer } = useSelector((state) => state?.contractDetails);
   const { contractAddress } = useSelector((state) => state?.contractDetails);
@@ -44,14 +44,10 @@ const Card2 = ({ Percentage }) => {
         setStakingValue(newValues);
         setCombineYield(newData);
 
-        const Main_Innvestment = ethers.utils.formatEther(Innvestment);
-        const Main_TotalEarn = ethers.utils.formatEther(TotalEarn);
-        const Main_TotalWithdraw = ethers.utils.formatEther(TotalWithdraw);
-        const Main_TotalReward = ethers.utils.formatEther(TotalReward);
-        setInvestment(Main_Innvestment);
-        setTotalEarn(Main_TotalEarn);
-        setTotalWith(Main_TotalWithdraw);
-        setTotalWithdraw(Main_TotalReward);
+        setInvestment(Innvestment / 10 ** 6);
+        setTotalEarn(TotalEarn / 10 ** 6);
+        setTotalWith(TotalWithdraw / 10 ** 6);
+        setTotalWithdraw(TotalReward / 10 ** 6);
         setReferral(subNum.toNumber());
       }
     } catch (error) {
@@ -66,21 +62,20 @@ const Card2 = ({ Percentage }) => {
         Toast.warning("Invalid Earnings or wallet Address.");
         return;
       }
-      const WithdrawAmount_string = totalWithdraw.toString();
-      const Amount = ethers.utils.parseEther(WithdrawAmount_string);
-      setLoading(true);
-      const Withcontract = await contract?.withdraw(Amount);
+      const Amount = totalWithdraw.toString();
+      setLoad(true);
+      const Withcontract = await contract?.withdraw(Amount * 10 ** 6);
       const res = await Withcontract.wait();
       if (res) {
         FetchBalance(dispatch, Address);
         Toast.success("Sucessfully Withdraw Earning.");
-        setLoading(false);
+        setLoad(false);
         console.log("Sucessfully Withdraw", res);
       }
     } catch (error) {
       console.error("error in withdraw earning.", error);
       Toast.error("Something Wrong in while Withdraw Earning.");
-      setLoading(false);
+      setLoad(false);
     }
   };
 
@@ -121,17 +116,19 @@ const Card2 = ({ Percentage }) => {
   getTypeTotal();
   useEffect(() => {
     main();
-  }, [Address, loading]);
+  }, [Address, loading, load]);
 
   const total_Earning = useMemo(() => {
     return Number(TotalWith) + Number(totalWithdraw);
   }, [TotalWith, totalWithdraw]);
 
+  // console.log("Investment", Investment);
+
   return (
     <>
       <div className="flex justify-center">
-        <div className="grid grid-cols-1 p-5 gap-4 w-full max-w-xl bg-white border border-gray-300 rounded-3xl shadow hover:brightness-100  from-black to-blue-500  dark:bg-gradient-to-b  dark:border-gray-700">
-          <h1 className="text-xl md:text-4xl md:pb-9 lg:pb-0 font-bold text-left table-mi-head font-montserrat">
+        <div className="grid grid-cols-1 p-5 gap-5 w-full max-w-xl bg-white border border-gray-300 rounded-3xl shadow hover:brightness-100  from-black to-blue-500  dark:bg-gradient-to-b  dark:border-gray-700">
+          <h1 className="text-2xl sm:text-4xl md:pb-0 lg:pb-0 font-bold text-left table-mi-head font-montserrat">
             MY STATS
           </h1>
           <div className="table-calculator-wr">
@@ -140,7 +137,7 @@ const Card2 = ({ Percentage }) => {
                 <div className="font-Open_Sans">Your Total Staked:</div>
                 <div className="text-lg md:text-2xl font-Open_Sans">
                   {Investment}{" "}
-                  <span className="text-teal-400 font-bold font-Open_Sans">
+                  <span className="text-teal-400 font-bold font-Open_Sans text-sm sm:text-lg xl:text-xl">
                     USDC
                   </span>
                 </div>
@@ -151,7 +148,7 @@ const Card2 = ({ Percentage }) => {
                 </div>
                 <div className="text-lg md:text-2xl">
                   {Number(TotalWith)?.toFixed(4)}{" "}
-                  <span className="text-teal-400 font-bold font-Open_Sans">
+                  <span className="text-teal-400 font-bold font-Open_Sans text-sm sm:text-lg xl:text-xl">
                     USDC
                   </span>
                 </div>
@@ -162,7 +159,7 @@ const Card2 = ({ Percentage }) => {
                 </div>
                 <div className="text-lg md:text-2xl font-Open_Sans">
                   {total_Earning?.toFixed(5)}{" "}
-                  <span className="text-teal-400 font-bold font-Open_Sans">
+                  <span className="text-teal-400 font-bold font-Open_Sans text-sm sm:text-lg xl:text-xl">
                     USDC
                   </span>
                 </div>
@@ -172,8 +169,11 @@ const Card2 = ({ Percentage }) => {
                   Your Combined Yield:{" "}
                 </div>
                 <div className="text-lg md:text-2xl font-Open_Sans">
-                  {Combined_Yield_Average}%{" "}
-                  <span className="text-teal-400 font-bold font-Open_Sans">
+                  {Combined_Yield_Average
+                    ? Combined_Yield_Average?.toFixed(2)
+                    : "0.00"}
+                  %{" "}
+                  <span className="text-teal-400 font-bold font-Open_Sans text-sm sm:text-lg xl:text-xl">
                     per day
                   </span>
                 </div>
@@ -183,7 +183,7 @@ const Card2 = ({ Percentage }) => {
                 <div className="font-Open_Sans">Your Number of Referrals:</div>
                 <div className="text-lg md:text-2xl font-Open_Sans">
                   {referral}{" "}
-                  <span className="text-teal-400 font-bold font-Open_Sans">
+                  <span className="text-teal-400 font-bold font-Open_Sans text-sm sm:text-lg xl:text-xl">
                     Referrals
                   </span>
                 </div>
@@ -194,7 +194,7 @@ const Card2 = ({ Percentage }) => {
                 </div>
                 <div className="text-lg md:text-2xl font-Open_Sans">
                   {Number(TotalEarn)?.toFixed(6)}{" "}
-                  <span className="text-teal-400 font-bold font-Open_Sans">
+                  <span className="text-teal-400 font-bold font-Open_Sans text-sm sm:text-lg xl:text-xl">
                     USDC
                   </span>
                 </div>
@@ -202,7 +202,7 @@ const Card2 = ({ Percentage }) => {
               {/* end block here */}
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-6 lg:gap-5 xl:gap-3 md:pt-3 lg:py-5 xl:py-1">
+          <div className="grid grid-cols-1 gap-6 lg:gap-5 xl:gap-3 md:pt-3 lg:py-1 xl:py-1">
             <div className="flex flex-row items-center gap-3">
               <div className="w-full ">
                 <div className="calcul-head-text font-Open_Sans">
@@ -210,7 +210,7 @@ const Card2 = ({ Percentage }) => {
                 </div>
                 <div className="text-lg md:text-2xl font-Open_Sans">
                   {Number(totalWithdraw)?.toFixed(5)}{" "}
-                  <span className="text-teal-400 font-bold font-Open_Sans">
+                  <span className="text-teal-400 font-bold font-Open_Sans text-sm sm:text-lg xl:text-xl">
                     USDC
                   </span>
                 </div>
@@ -219,12 +219,12 @@ const Card2 = ({ Percentage }) => {
                 <button
                   onClick={HandleWithdraw}
                   type="button"
-                  disabled={!Address}
-                  className={`text-[#000] flex justify-center items-center p-2.5 font-Open_Sans font-bold text-xs lg:text-base xl:text-xl bg-[#FFD700] hover:brightness-105 focus:outline-none rounded-full w-full text-center ${
-                    !Address ? "opacity-50" : ""
+                  disabled={!Address || Number(totalWithdraw) <= 0}
+                  className={`text-[#000] flex justify-center items-center p-2.5 font-Open_Sans font-bold text-sm sm:text-base lg:text-lg bg-[#FFD700] hover:brightness-105 focus:outline-none rounded-full w-full text-center ${
+                    !Address || Number(totalWithdraw) <= 0 ? "opacity-50" : ""
                   }`}
                 >
-                  {loading ? (
+                  {load ? (
                     <Oval
                       visible={true}
                       height="30"
@@ -244,7 +244,7 @@ const Card2 = ({ Percentage }) => {
             <button
               onClick={WithdrawPrin}
               type="button"
-              className="text-[#000] font-Open_Sans text-sm lg:text-base xl:text-xl font-bold bg-[#FFD700] focus:outline-none rounded-full w-full py-4 text-center me-2 mb-0"
+              className="text-[#000] font-Open_Sans text-sm sm:text-base lg:text-lg font-bold bg-[#FFD700] focus:outline-none rounded-full w-full py-3 text-center xl:mb-1.5 lg:mb-2 me-2 lg:mt-2 xl:mt-4"
             >
               WITHDRAW PRINCIPAL
             </button>

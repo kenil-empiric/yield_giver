@@ -43,6 +43,7 @@ const persistConfig = {
       expiredState: {
         Address: "",
         balance: "",
+        USDC: "",
       },
       autoExpire: true,
     }),

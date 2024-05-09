@@ -110,6 +110,8 @@ function Pool() {
   const [PlanOneDays, setPlanOneDays] = useState(null);
   const [PlanTwoDays, setPlanTwoDays] = useState(null);
   const [PlanThreeDays, setPlanThreeDays] = useState(null);
+
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   const { KYC } = useSelector((state) => state.isKYCDetail);
@@ -181,7 +183,7 @@ function Pool() {
           </Slider>
         </div>
 
-        {KYC ? (
+        {!KYC ? (
           <div className="flex flex-col lg:flex-row py-20 2xl:py-28 ">
             <motion.div
               initial={{ opacity: 0, y: 150 }}
@@ -190,7 +192,7 @@ function Pool() {
               viewport={{ once: true }}
               className="w-full p-4 "
             >
-              <Card1 />
+              <Card1 loading={loading} setLoading={setLoading} />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 150 }}
@@ -205,6 +207,7 @@ function Pool() {
                   planTwoMultiplier,
                   planThreeMultiplier,
                 }}
+                loading={loading}
               />
             </motion.div>
           </div>

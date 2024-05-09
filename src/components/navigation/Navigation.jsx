@@ -73,21 +73,21 @@ export const SideNav = [
     icon: <BsDroplet className="text-2xl md:text-3xl" />,
     path: "/pool",
   },
-  {
-    title: "Stake",
-    icon: <PiStackLight className="text-2xl md:text-3xl" />,
-    path: "#",
-  },
-  {
-    title: "Swap",
-    icon: <IoMdSwap className="text-2xl md:text-3xl" />,
-    path: "#",
-  },
-  {
-    title: "Earn",
-    icon: <GiPayMoney className="text-2xl md:text-3xl" />,
-    path: "#",
-  },
+  // {
+  //   title: "Stake",
+  //   icon: <PiStackLight className="text-2xl md:text-3xl" />,
+  //   path: "#",
+  // },
+  // {
+  //   title: "Swap",
+  //   icon: <IoMdSwap className="text-2xl md:text-3xl" />,
+  //   path: "#",
+  // },
+  // {
+  //   title: "Earn",
+  //   icon: <GiPayMoney className="text-2xl md:text-3xl" />,
+  //   path: "#",
+  // },
   {
     title: "Docs",
     icon: <IoMdBook className="text-2xl md:text-3xl" />,
