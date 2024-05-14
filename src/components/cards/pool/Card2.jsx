@@ -122,8 +122,6 @@ const Card2 = ({ Percentage, loading }) => {
     return Number(TotalWith) + Number(totalWithdraw);
   }, [TotalWith, totalWithdraw]);
 
-  // console.log("Investment", Investment);
-
   return (
     <>
       <div className="flex justify-center">

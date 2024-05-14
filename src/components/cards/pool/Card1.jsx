@@ -10,7 +10,7 @@ import FetchBalance from "../../../utils/FetchBalance";
 import Abi from "../../../ABI/Abi.json";
 import USDCABI from "../../../BNBABI/Abi.json";
 
-const Card1 = ({ loading, setLoading }) => {
+const Card1 = ({ loading, setLoading, id = 0 }) => {
   const [refAddress, setRefAddress] = useState("");
   const [stakeAmount, setStakeAmount] = useState(null);
   const [minInvestment, setMinInvestAmount] = useState(0);
@@ -29,6 +29,7 @@ const Card1 = ({ loading, setLoading }) => {
   );
 
   const contractAbi = Abi?.abi;
+  console.log("pool id", id);
 
   const {
     REACT_APP_API_BASE_URL,
@@ -58,7 +59,7 @@ const Card1 = ({ loading, setLoading }) => {
     try {
       const USDCAllownace = await usdcContract.allowance(
         Address,
-        "0xaa4f8A746FDf4bAeE68a1904E50e13cEdaaCB20a"
+        REACT_APP_CONTRACT_ADDRESS
       );
       if (USDCAllownace) {
         let allowance = (USDCAllownace / 10 ** 6).toString();
@@ -159,11 +160,12 @@ const Card1 = ({ loading, setLoading }) => {
         }
       }
     } catch (error) {
-      console.error("Error staking:", error.message);
+      let E = new Error(error);
+      const reasonMatch = E.message.match(/\(reason="([^"]+)"/);
+      console.log("Error staking:", reasonMatch[1]);
       setLoading(false);
-      const ErrorMessage = error.message.split(/(?:\(|,|{|^|\[)/)[0].trim();
-      console.log(ErrorMessage);
-      Toast.error(ErrorMessage);
+      // const ErrorMessage = error.message.split(/(?:\(|,|{|^|\[)/)[0].trim();
+      Toast.error(reasonMatch[1]);
     }
   };
 
@@ -189,7 +191,6 @@ const Card1 = ({ loading, setLoading }) => {
   const handleApprove = async () => {
     try {
       setApproveLoading(true);
-      const decimalUSDC = await usdcContract.decimals();
       const stakeUSDC = await usdcContract.approve(
         REACT_APP_CONTRACT_ADDRESS,
         stakeAmount * 1000000

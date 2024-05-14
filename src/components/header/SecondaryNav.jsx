@@ -132,6 +132,9 @@ function SecondaryNav() {
         setWalletShow(false);
       }, 200);
       Toast.success("Wallet Disconnected.");
+      setTimeout(() => {
+        return navigate("/pool");
+      }, 3000);
     } catch (error) {
       console.error("Error disconnecting wallet:", error);
       Toast.error("Something went wrong while disconnecting the wallet.");

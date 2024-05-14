@@ -26,8 +26,8 @@ const persistConfig = {
     "isSignChecked",
     "contractDetails",
     "isKYCDetail",
-    // "planData",
-    //"planRate",
+    "planData",
+    "planRate",
     "IsAdmin",
   ],
   transforms: [

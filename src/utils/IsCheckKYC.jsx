@@ -1,6 +1,5 @@
 import { isKYCData } from "../Redux/Reducer/isKYCCheck";
 import axios from "axios";
-import { Toast } from "./toast";
 
 export const fetchFormData = async (dispatch, Address) => {
   //secrete keys
@@ -14,21 +13,22 @@ export const fetchFormData = async (dispatch, Address) => {
     const res = await axios.get(
       `${REACT_APP_JOTFORM_BASE_URL}/${REACT_APP_JOTFORM_ID}/submissions?apiKey=${REACT_APP_JOTFORM_API_KEY}`
     );
+    console.log("kyc form res.", res.data);
     if (res) {
       const isCheck = res.data.content?.some((item) => {
         return (
           Address &&
-          item.answers["34"] &&
-          item.answers["34"]["answer"] &&
-          item.answers["34"]["answer"].toLowerCase() ===
+          item.answers["30"] &&
+          item.answers["30"]["answer"] &&
+          item.answers["30"]["answer"].toLowerCase() ===
             Address.toLowerCase() &&
-          item.answers["35"]["answer"] === "1"
+          item.answers["34"]["answer"] === "1"
         );
       });
+      console.log("isCheck", isCheck);
       dispatch(isKYCData(isCheck));
     }
   } catch (error) {
-    Toast.error("Something wents wrong in KYC form.");
     console.log("getting error in KYC form details.", error);
   }
 };

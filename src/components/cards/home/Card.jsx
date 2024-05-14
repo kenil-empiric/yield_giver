@@ -14,7 +14,12 @@ function Card({ el }) {
   const { Address } = useSelector((state) => state?.walletDetails);
   const { KYC } = useSelector((state) => state.isKYCDetail);
 
-  const handleNavigate = (id) => {
+  const handleNavigate = (id, plan_name, daily_Pool_Yield) => {
+    if (!id || !plan_name || !daily_Pool_Yield) {
+      Toast.error("Invalid Plan_ID, current_Pool_Yield or Plan_Name.");
+      return;
+    }
+    dispatch(setPlanData({ id, plan_name, daily_Pool_Yield }));
     return navigate(`/pool/${id}`);
   };
 
@@ -91,7 +96,9 @@ function Card({ el }) {
               className={`text-[#000] font-bold font-Open_Sans mt-2 bg-[#FFD700] focus:outline-none rounded-xl xl:text-base 2xl:text-xl px-5 py-2.5 inline-flex justify-center text-center ${
                 !Address || !KYC ? "opacity-50 cursor-not-allowed" : ""
               }`}
-              onClick={() => handleNavigate(el.id)}
+              onClick={() =>
+                handleNavigate(el.id, el.title, el.daily_Pool_Yield)
+              }
             >
               Explore Pool
             </button>

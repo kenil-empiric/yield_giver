@@ -12,7 +12,7 @@ import KYCForm from "../components/forms/KYCForm";
 import { useDispatch, useSelector } from "react-redux";
 import { setPlanRate } from "../Redux/Reducer/planRateSlice";
 import CardComponent from "../utils/CardDetails";
-import { setDailyPoolYield } from "../Redux/Reducer/planSlice";
+import { setDailyPoolYield, setPlanData } from "../Redux/Reducer/planSlice";
 
 const settings = {
   speed: 500,
@@ -158,7 +158,14 @@ function Pool() {
             planThreeMulNumber,
           })
         );
-        dispatch(setDailyPoolYield(planOneMulNumber));
+        //dispatch(setDailyPoolYield(planOneMulNumber));
+        dispatch(
+          setPlanData({
+            id: card[0].id,
+            plan_name: card[0].title,
+            daily_Pool_Yield: planOneMulNumber,
+          })
+        );
 
         setPlanOneDays(PlannOneDaysNumber);
         setPlanTwoDays(PlannTwoDaysNumber);
@@ -183,7 +190,7 @@ function Pool() {
           </Slider>
         </div>
 
-        {!KYC ? (
+        {KYC ? (
           <div className="flex flex-col lg:flex-row py-20 2xl:py-28 ">
             <motion.div
               initial={{ opacity: 0, y: 150 }}

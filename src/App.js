@@ -3,7 +3,7 @@ import AllRoutes from "./routes/AllRoutes";
 import Layout from "./components/layout/Layout";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ethers } from "ethers";
 import { Contract_data } from "./Redux/Reducer/contractSlice";
 import { walletData } from "./Redux/Reducer/walletSlice";
@@ -21,6 +21,7 @@ function App() {
     REACT_APP_CONTRACT_ADDRESS,
     REACT_APP_USDC_ADDRESS,
   } = process.env;
+  const { Address } = useSelector((state) => state?.walletDetails);
 
   useEffect(() => {
     const connectWallet = async () => {
@@ -36,6 +37,9 @@ function App() {
       }
     };
     connectWallet();
+    if (Address) {
+      fetchFormData(dispatch, Address);
+    }
   }, []);
 
   useEffect(() => {

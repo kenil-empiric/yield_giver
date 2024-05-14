@@ -1,10 +1,11 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Toast } from "../utils/toast";
 import { Oval } from "react-loader-spinner";
 
 function AdminForm() {
+  const [data, setData] = useState([]);
   const [poolOneYield, setPoolOneYield] = useState("");
   const [poolTwoYield, setPoolTwoYield] = useState("");
   const [poolThreeYield, setPoolThreeYield] = useState("");
@@ -13,6 +14,8 @@ function AdminForm() {
   const [poolThreePeriod, setPoolThreePeriod] = useState("");
   const [minAmount, setMinAmount] = useState("");
   const [maxAmount, setMaxAmount] = useState("");
+  const [poolNum, setPoolNum] = useState("");
+  const [totalInvest, setTotalInvest] = useState("");
   const [loadingOne, setLoadingOne] = useState(false);
   const [loadingTwo, setLoadingTwo] = useState(false);
   const [loadingThree, setLoadingThree] = useState(false);
@@ -21,6 +24,8 @@ function AdminForm() {
   const [loadingSix, setLoadingSix] = useState(false);
   const [loadingSeven, setLoadingSeven] = useState(false);
   const [loadingEight, setLoadingEight] = useState(false);
+  const [loadingInvest, setLoadingInvest] = useState(false);
+  const [investLoading, setInvestLoading] = useState(false);
 
   const { REACT_APP_API_BASE_URL } = process.env;
 
@@ -33,6 +38,34 @@ function AdminForm() {
       Authorization: Address && Address.toString(),
     },
   });
+
+  const fetchTotalInvest = async () => {
+    try {
+      setInvestLoading(true);
+      const promises = [
+        axios.get(`${REACT_APP_API_BASE_URL}/getTotalInvesment/pool/1`),
+        axios.get(`${REACT_APP_API_BASE_URL}/getTotalInvesment/pool/2`),
+        axios.get(`${REACT_APP_API_BASE_URL}/getTotalInvesment/pool/3`),
+      ];
+      const allResponses = await Promise.allSettled(promises);
+      const Data = allResponses?.map((el) => {
+        console.log("response of the code.", el);
+        if (el.status === "fulfilled") {
+          return el.value.data;
+        } else {
+          return null;
+        }
+      });
+      if (Data) {
+        setData(Data);
+        setInvestLoading(false);
+      }
+      setInvestLoading(false);
+    } catch (error) {
+      setInvestLoading(false);
+      console.log("getting error in fetching total investment", error);
+    }
+  };
 
   //API Request ,
   const handleSubmit = async (InputType) => {
@@ -150,6 +183,28 @@ function AdminForm() {
             return;
           }
           break;
+        case "Total_Investment_Amount_Pool":
+          if (!poolNum || !totalInvest) {
+            Toast.error("Please enter the yield value before processing.");
+            return;
+          }
+          setLoadingInvest(true);
+          const res_Total_Invest = await apiInstance.post(
+            "/setTotalInvestAmount",
+            {
+              plan_num: Number(poolNum),
+              amount: Number(totalInvest),
+            }
+          );
+          if (res_Total_Invest.status === 200) {
+            setLoadingInvest(false);
+            Toast.success(res_Total_Invest.data.message);
+            fetchTotalInvest();
+            setPoolNum("");
+            setTotalInvest("");
+            return;
+          }
+          break;
         default:
           if (!maxAmount) {
             Toast.error("Please enter the yield value before processing.");
@@ -178,15 +233,20 @@ function AdminForm() {
       setLoadingSix(false);
       setLoadingSeven(false);
       setLoadingEight(false);
+      setLoadingInvest(false);
     }
   };
 
+  useEffect(() => {
+    fetchTotalInvest();
+  }, []);
+
   return (
     <>
-      <div className="p-3 md:p-4 lg:p-0">
-        <div className="max-w-xl md:max-w-3xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-28 md:mt-40 lg:mt-28 xl:mt-40 bg-gradient-to-b from-gray-200 to-gray-300 p-4 md:p-8 lg:p-10 rounded-lg">
+      <div className="p-3 md:p-2 lg:p-0">
+        <div className="max-w-xl border md:max-w-3xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-28 md:mt-40 lg:mt-28 xl:mt-24 bg-gradient-to-b from-gray-200 to-gray-300 p-4 md:p-8 lg:p-8 rounded-lg">
           <div
-            className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold font-montserrat text-center mb-8 text-teal-400"
+            className="text-3xl md:text-4xl lg:text-5xl 2xl:text-5xl font-bold font-montserrat text-center mb-8 text-teal-400"
             style={{
               background: "linear-gradient(to right, #35cdc2, #236de7)",
               WebkitBackgroundClip: "text",
@@ -499,6 +559,101 @@ function AdminForm() {
                   />
                 ) : (
                   "Add Maxmium Investement"
+                )}
+              </button>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="mb-4">
+              <label
+                htmlFor="firstName"
+                className="block text-gray-700 text-lg font-Open_Sans font-bold mb-2"
+              >
+                Investment Limit For Pool One
+              </label>
+              <button
+                type="button"
+                className="flex justify-center items-center bg-[#FFD700] font-Open_Sans text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
+              >
+                {investLoading ? `00.00 USDC` : `${data[0]?.planTwoMul} USDC`}
+              </button>
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="lastName"
+                className="block text-gray-700 text-lg font-Open_Sans font-bold mb-2"
+              >
+                Investment Limit For Pool Two
+              </label>
+              <button
+                type="button"
+                className="flex justify-center items-center bg-[#FFD700] font-Open_Sans text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
+              >
+                {investLoading ? `00.00 USDC` : `${data[1]?.planTwoMul} USDC`}
+              </button>
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="email"
+                className="block text-gray-700 text-lg font-Open_Sans font-bold mb-2"
+              >
+                Investment Limit For Pool Three
+              </label>
+
+              <button
+                type="button"
+                className="flex justify-center items-center bg-[#FFD700] font-Open_Sans text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
+              >
+                {investLoading ? `00.00 USDC` : `${data[2]?.planTwoMul} USDC`}
+              </button>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-1 md:gap-4">
+            <div className=" md:mb-4">
+              <label
+                htmlFor="lastName"
+                className="block text-gray-700 text-lg font-Open_Sans font-bold mb-2"
+              >
+                Total Investment Amount For Each Pool
+              </label>
+              <input
+                type="number"
+                id="poolNum"
+                name="poolNum"
+                value={poolNum}
+                onChange={(e) => setPoolNum(e.target.value)}
+                className="shadow font-Open_Sans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                placeholder="Enter Pool Number"
+                required
+              />
+              <input
+                type="number"
+                id="totalInvest"
+                name="totalInvest"
+                value={totalInvest}
+                onChange={(e) => setTotalInvest(e.target.value)}
+                className="shadow font-Open_Sans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2"
+                placeholder="Enter Total Investement Amount"
+                required
+              />
+              <button
+                type="button"
+                className="flex justify-center items-center bg-[#FFD700] font-Open_Sans text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
+                onClick={() => handleSubmit("Total_Investment_Amount_Pool")}
+              >
+                {loadingInvest ? (
+                  <Oval
+                    visible={true}
+                    height="25"
+                    width="25"
+                    color="#ffffff"
+                    ariaLabel="oval-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    secondaryColor="#ffffff"
+                  />
+                ) : (
+                  "Total Investment Amount"
                 )}
               </button>
             </div>
