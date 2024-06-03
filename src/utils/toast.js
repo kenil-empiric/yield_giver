@@ -24,6 +24,7 @@ const Toast = {
   },
 };
 
+
 const ToastComponent = () => {
   return <ToastContainer />;
 };

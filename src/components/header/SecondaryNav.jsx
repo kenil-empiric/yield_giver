@@ -21,18 +21,24 @@ import { isKYCData } from "../../Redux/Reducer/isKYCCheck";
 import { fetchFormData } from "../../utils/IsCheckKYC";
 import { setAdmin } from "../../Redux/Reducer/isAdminSlice";
 import USDCABI from "../../BNBABI/Abi.json";
+import Abi from "../../ABI/Abi.json";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function SecondaryNav() {
   const [show, setShow] = useState(false);
   const [Walletshow, setWalletShow] = useState(false);
+  const [StakeAmount, setStakeAmount] = useState("0.0");
   const storedMode = localStorage.getItem("mode");
-  const [mode, setMode] = useState(storedMode === "dark");
+  const defaultMode = storedMode ? storedMode === "dark" : true;
+  const [mode, setMode] = useState(defaultMode);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const data = useSelector((state) => state.isSignChecked?.sign_hash);
   const { Address, balance, USDC } = useSelector(
     (state) => state?.walletDetails
   );
+
   const { REACT_APP_ADMIN_ADDRESS, REACT_APP_USDC_ADDRESS } = process.env;
 
   useEffect(() => {
@@ -42,6 +48,8 @@ function SecondaryNav() {
       document.documentElement.classList.remove("dark");
     }
   }, [mode]);
+
+  
 
   const handleMode = () => {
     const newMode = !mode;
@@ -91,7 +99,19 @@ function SecondaryNav() {
         }
       } catch (error) {
         console.error("Error connecting wallet:", error);
-        Toast.error("Something went wrong while connecting the wallet.");
+        Toast.error(
+          <div>
+            Notice: Your Wallet Connection Attempt Failed. For Access, Switch to{" "}
+            <a
+              style={{ color: "blue" }}
+              href="https://chainlist.org/?search=arbitrum+one"
+              target="_blank"
+            >
+              Arbitrum One
+            </a>
+            , Where Faster Transactions and Lower Fees Await.
+          </div>
+        );
       }
     }
   };
@@ -137,7 +157,19 @@ function SecondaryNav() {
       }, 3000);
     } catch (error) {
       console.error("Error disconnecting wallet:", error);
-      Toast.error("Something went wrong while disconnecting the wallet.");
+      Toast.error(
+        <div>
+          Notice: Your Wallet Connection Attempt Failed. For Access, Switch to{" "}
+          <a
+            style={{ color: "blue" }}
+            href="https://chainlist.org/?search=arbitrum+one"
+            target="_blank"
+          >
+            Arbitrum One
+          </a>
+          , Where Faster Transactions and Lower Fees Await.
+        </div>
+      );
     }
   };
 
@@ -239,6 +271,7 @@ function SecondaryNav() {
         userBalance={balance}
         UserUSDC={USDC}
         handleDisconnect={handleDisconnect}
+        // StakeAmount={StakeAmount}
       />
     </>
   );

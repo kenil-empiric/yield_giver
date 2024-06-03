@@ -27,7 +27,8 @@ const Card1 = ({ loading, setLoading, id = 0 }) => {
   const { plan_Number, plan_Name, daily_Pool_Yield } = useSelector(
     (state) => state.planData
   );
-
+  const daily_Pool_Yield_cal = daily_Pool_Yield / 1000000;
+  console.log();
   const contractAbi = Abi?.abi;
   console.log("pool id", id);
 
@@ -77,7 +78,7 @@ const Card1 = ({ loading, setLoading, id = 0 }) => {
     axios
       .get(apiUrlMinAmount)
       .then((response) => {
-        setMinInvestAmount(response.data.minamount / 1000000);
+        setMinInvestAmount(response.data.minamount / 1000000000000);
       })
       .catch((error) => {
         console.error("Error fetching data from the API:", error);
@@ -86,7 +87,7 @@ const Card1 = ({ loading, setLoading, id = 0 }) => {
     axios
       .get(apiUrlMaxAmount)
       .then((response) => {
-        setMaxInvestAmount(response.data.maxamount / 1000000);
+        setMaxInvestAmount(response.data.maxamount / 1000000000000);
       })
       .catch((error) => {
         console.error("Error fetching data from the API:", error);
@@ -101,7 +102,6 @@ const Card1 = ({ loading, setLoading, id = 0 }) => {
         Toast.warning("Please Fill All the Field.");
         return;
       }
-
       if (stakeAmount < minInvestment || stakeAmount > maxInvestment) {
         Toast.warning(
           `Please enter an amount between ${minInvestment} and ${maxInvestment}.`
@@ -170,7 +170,7 @@ const Card1 = ({ loading, setLoading, id = 0 }) => {
   };
 
   let Current_Daily_Profit = (
-    (stakeAmount * (daily_Pool_Yield ? daily_Pool_Yield : 1)) /
+    (stakeAmount * (daily_Pool_Yield_cal ? daily_Pool_Yield_cal : 1)) /
     100
   )?.toFixed(4);
   let Expected_Days_until_ROI =
@@ -255,9 +255,10 @@ const Card1 = ({ loading, setLoading, id = 0 }) => {
                 </div>
                 <div className="text-lg md:text-2xl font-Open_Sans">
                   {/* {daily_Pool_Yield} */}
-                  {daily_Pool_Yield
-                    ? daily_Pool_Yield?.toFixed(2)
-                    : "0.00"}% {/* {PerRate ? PerRate : "1"}%{" "} */}
+                  {daily_Pool_Yield_cal
+                    ? daily_Pool_Yield_cal?.toFixed(2)
+                    : "0.00"}
+                  % {/* {PerRate ? PerRate : "1"}%{" "} */}
                   <span className="text-teal-400 font-bold font-Open_Sans text-sm sm:text-lg xl:text-xl">
                     per day
                   </span>
@@ -327,7 +328,7 @@ const Card1 = ({ loading, setLoading, id = 0 }) => {
                     !Address ||
                     !plan_Number ||
                     !plan_Name ||
-                    !daily_Pool_Yield ||
+                    !daily_Pool_Yield_cal ||
                     stakeAmount > allowance
                   }
                   className={`text-[#000] flex text-sm sm:text-base lg:text-lg justify-center items-center font-bold font-Open_Sans bg-[#FFD700] hover:brightness-105 focus:outline-none rounded-full text- w-full py-2.5 text-center me-2 mb-2 ${
@@ -358,7 +359,7 @@ const Card1 = ({ loading, setLoading, id = 0 }) => {
                     !Address ||
                     !plan_Number ||
                     !plan_Name ||
-                    !daily_Pool_Yield ||
+                    !daily_Pool_Yield_cal ||
                     stakeAmount <= allowance
                   }
                   className={`text-[#000] flex text-sm sm:text-base lg:text-lg justify-center items-center font-bold font-Open_Sans bg-[#FFD700] hover:brightness-105 focus:outline-none rounded-full text- w-full py-2.5 text-center me-2 mb-2 ${

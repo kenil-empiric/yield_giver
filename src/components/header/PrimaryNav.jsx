@@ -7,7 +7,10 @@ import { Link } from "react-router-dom";
 function PrimaryNav() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const storedMode = localStorage.getItem("mode");
-  const [mode, setMode] = useState(storedMode === "dark");
+  const defaultMode = storedMode ? storedMode === "dark" : true;
+  const [mode, setMode] = useState(defaultMode);
+  
+
   useEffect(() => {
     if (mode) {
       document.documentElement.classList.add("dark");
@@ -15,6 +18,7 @@ function PrimaryNav() {
       document.documentElement.classList.remove("dark");
     }
   }, [mode]);
+
   const handleMode = () => {
     const newMode = !mode;
     setMode(!mode);

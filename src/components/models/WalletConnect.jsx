@@ -5,6 +5,10 @@ import logo from "../../assets/logo.svg";
 import { FaPowerOff } from "react-icons/fa";
 import CopyAddress from "../constants/CopyAddress";
 import { IoCopyOutline } from "react-icons/io5";
+import Abi from "../../ABI/Abi.json";
+import { useSelector } from "react-redux";
+import { ethers } from "ethers";
+
 
 function WalletConnect({
   setWalletShow,
@@ -15,8 +19,36 @@ function WalletConnect({
   userBalance,
   handleDisconnect,
   UserUSDC,
+  // StakeAmount
 }) {
   const [copyIcon, setCopyIcon] = useState({ icon: IoCopyOutline });
+  // const contractAbi = Abi.abi;
+  // const { signer } = useSelector((state) => state?.contractDetails);
+  // const { contractAddress } = useSelector((state) => state?.contractDetails);
+  // const { Address } = useSelector((state) => state?.walletDetails);
+  // // const contractAbi = Abi.abi;
+  // const contract = new ethers.Contract(contractAddress, contractAbi, signer);
+  // const { signer, contractAddress } = useSelector(
+  //   (state) => state?.contractDetails
+  // );
+  // console.log(signer,contractAddress);
+  // const contract = new ethers.Contract(contractAddress, contractAbi ,signer);
+  
+    // const SecondaryNav = async () => {
+    //   try {
+       
+    //       const GetData = await contract?.userMap(userAddress);
+    //       const Innvestment = await GetData?.investment;
+    //       console.log(Innvestment);
+   
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
+
+    // SecondaryNav();
+    const storedMode = localStorage.getItem("stake");
+
 
   return (
     <>
@@ -73,6 +105,14 @@ function WalletConnect({
                       {UserUSDC && Number(UserUSDC)?.toFixed(4)}{" "}
                       <span className="text-[#FFD700] font-Open_Sans">
                         USDC
+                      </span>
+                    </button>
+                  </div>
+                  <div className="w-[90%] mt-3 dark:text-[#ffffff] hover:text-[#ffffff] hover:dark:border-blue-900 hover:border-[#ffffff] md:w-full lg:w-[85%] m-auto flex items-center justify-center hover:bg-blue-950 hover:bg-gradient-to-bl from-blue-600 to-teal-400 border rounded-md border-blue-900 gap-6 md:justify-evenly p-2">
+                     <button className="py-4 px-6 md:p-2 bg-transparent rounded-xl text-sm md:text-lg font-bold font-Open_Sans">
+                      {storedMode && Number(storedMode/1000000)?.toFixed(4)}{" "}
+                      <span className="text-[#FFD700] font-Open_Sans">
+                        USDC STAKE
                       </span>
                     </button>
                   </div>

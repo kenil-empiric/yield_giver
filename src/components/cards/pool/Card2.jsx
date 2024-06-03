@@ -18,6 +18,8 @@ const Card2 = ({ Percentage, loading }) => {
   const [referral, setReferral] = useState(0);
   // const [WithdrawAmount, setWithdrawAmount] = useState("");
   const [load, setLoad] = useState(false);
+  const [load1, setLoad2] = useState(false);
+
   const dispatch = useDispatch();
   const { signer } = useSelector((state) => state?.contractDetails);
   const { contractAddress } = useSelector((state) => state?.contractDetails);
@@ -36,6 +38,7 @@ const Card2 = ({ Percentage, loading }) => {
         const subNum = await GetData?.subNum;
 
         //here we getting combine yield.
+        localStorage.setItem("stake", `${Innvestment}`);
         const GetInvestmentDetails = await contract?.getInvestments();
         const GetPlanTypes = await GetInvestmentDetails.typeNums?.toString();
         const GetPlanValues = await GetInvestmentDetails[2]?.toString();
@@ -82,11 +85,22 @@ const Card2 = ({ Percentage, loading }) => {
   const WithdrawPrin = async (event) => {
     event.preventDefault();
     try {
-      // const WithcPrincipal= await contract.withdraw()
-      // await WithcPrincipal.wait();
-      // console.log("Sucessfully Withdraw");
+      if(Investment < 0 && !Address){
+        Toast.warning("Invalid Earnings or wallet Address.");
+        return;
+      }
+      setLoad2(true);
+      const WithcPrincipal= await contract.withdrawPrincipal(0)
+      await WithcPrincipal.wait();
+      setLoad2(false);
+      console.log("Sucessfully Withdraw");
     } catch (error) {
-      console.error(error);
+      setLoad2(false);
+      let E = new Error(error);
+      const reasonMatch=E.message.match(/\(reason="([^"]+)"/);
+      Toast.error(reasonMatch[1]);
+     
+      console.error(reasonMatch[1]); 
     }
   };
 
@@ -102,11 +116,11 @@ const Card2 = ({ Percentage, loading }) => {
     }
     for (let key in objType) {
       if (key === "1") {
-        objType[key] = objType[key] * planOneMultiplier;
+        objType[key] = objType[key] * planOneMultiplier/1000000;
       } else if (key === "2") {
-        objType[key] = objType[key] * planTwoMultiplier;
+        objType[key] = objType[key] * planTwoMultiplier/1000000;
       } else {
-        objType[key] = objType[key] * planThreeMultiplier;
+        objType[key] = objType[key] * planThreeMultiplier/1000000;
       }
     }
     const sum = Object.values(objType).reduce((acc, curr) => acc + curr, 0);
@@ -242,10 +256,24 @@ const Card2 = ({ Percentage, loading }) => {
             <button
               onClick={WithdrawPrin}
               type="button"
-              className="text-[#000] font-Open_Sans text-sm sm:text-base lg:text-lg font-bold bg-[#FFD700] focus:outline-none rounded-full w-full py-3 text-center xl:mb-1.5 lg:mb-2 me-2 lg:mt-2 xl:mt-4"
+              className="text-[#000]  flex justify-center items-center font-Open_Sans text-sm sm:text-base lg:text-lg font-bold bg-[#FFD700] focus:outline-none rounded-full w-full py-3 text-center xl:mb-1.5 lg:mb-2 me-2 lg:mt-2 xl:mt-4"
             >
-              WITHDRAW PRINCIPAL
+              {load1 ? (
+                    <Oval
+                      visible={true}
+                      height="30"
+                      width="30"
+                      color="#ffffff"
+                      ariaLabel="oval-loading"
+                      wrapperStyle={{}}
+                      wrapperClass=""
+                      secondaryColor="#ffffff"
+                    />
+                  ) : (
+                    "WITHDRAW PRINCIPAL"
+                  )}
             </button>
+            
           </div>
         </div>
       </div>

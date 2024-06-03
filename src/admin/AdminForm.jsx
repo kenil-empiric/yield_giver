@@ -26,6 +26,8 @@ function AdminForm() {
   const [loadingEight, setLoadingEight] = useState(false);
   const [loadingInvest, setLoadingInvest] = useState(false);
   const [investLoading, setInvestLoading] = useState(false);
+  const [withdrewloading, setWithdrawLoading] = useState(false);
+  const [withdrawBalance, setWithdrawBalance] = useState("00.00");
 
   const { REACT_APP_API_BASE_URL } = process.env;
 
@@ -67,10 +69,40 @@ function AdminForm() {
     }
   };
 
+  const fetchContractBalance = async () => {
+    try {
+      const res = await axios.get(
+        `${REACT_APP_API_BASE_URL}/getTotalContractBalance`
+      );
+      if (res.status === 200) {
+        setWithdrawBalance(res.data.contractbalance);
+      }
+      console.log("promise response here", res.data.contractbalance);
+    } catch (error) {
+      console.log("error in getting the  contract balance.", error);
+    }
+  };
+  console.log("withdrawBalance", withdrawBalance);
   //API Request ,
   const handleSubmit = async (InputType) => {
     try {
       switch (InputType) {
+        case "Withdraw Contract Balance":
+          if (withdrawBalance < 1) {
+            Toast.error("Contract Balance Not present.");
+            return;
+          }
+          setWithdrawLoading(true);
+          const response_withdraw_balance = await apiInstance.get(
+            "/WithdrawContractBalance"
+          );
+          if (response_withdraw_balance.status === 200) {
+            setWithdrawLoading(false);
+            Toast.success(response_withdraw_balance.data.message);
+            setWithdrawBalance("00.00");
+            return;
+          }
+          break;
         case "Daily_Pool_One_Yield":
           if (!poolOneYield) {
             Toast.error("Please enter the yield value before processing.");
@@ -78,7 +110,7 @@ function AdminForm() {
           }
           setLoadingOne(true);
           const response_one = await apiInstance.post("/setPlanOneRate", {
-            rate: poolOneYield,
+            rate: poolOneYield * 10 ** 6 ,
           });
           if (response_one.status === 200) {
             setLoadingOne(false);
@@ -94,7 +126,7 @@ function AdminForm() {
           }
           setLoadingTwo(true);
           const response_Two = await apiInstance.post("/setPlanTwoRate", {
-            rate: poolTwoYield,
+            rate: poolTwoYield * 10 ** 6,
           });
           if (response_Two.status === 200) {
             setLoadingTwo(false);
@@ -110,7 +142,7 @@ function AdminForm() {
           }
           setLoadingThree(true);
           const response_Three = await apiInstance.post("/setPlanThreeRate", {
-            rate: poolThreeYield,
+            rate: poolThreeYield * 10 ** 6,
           });
           if (response_Three.status === 200) {
             setLoadingThree(false);
@@ -174,7 +206,7 @@ function AdminForm() {
           }
           setLoadingSeven(true);
           const res_Min_Invest = await apiInstance.post("/setMinInvestAmount", {
-            amount: minAmount,
+            amount: minAmount * 10 ** 6,
           });
           if (res_Min_Invest.status === 200) {
             setLoadingSeven(false);
@@ -193,7 +225,7 @@ function AdminForm() {
             "/setTotalInvestAmount",
             {
               plan_num: Number(poolNum),
-              amount: Number(totalInvest),
+              amount: Number(totalInvest) * 10 ** 6,
             }
           );
           if (res_Total_Invest.status === 200) {
@@ -212,7 +244,7 @@ function AdminForm() {
           }
           setLoadingEight(true);
           const res_Max_Invest = await apiInstance.post("/setMaxInvestAmount", {
-            amount: maxAmount,
+            amount: maxAmount * 10 ** 6,
           });
           if (res_Max_Invest.status === 200) {
             setLoadingEight(false);
@@ -234,11 +266,13 @@ function AdminForm() {
       setLoadingSeven(false);
       setLoadingEight(false);
       setLoadingInvest(false);
+      setWithdrawLoading(false);
     }
   };
 
   useEffect(() => {
     fetchTotalInvest();
+    fetchContractBalance();
   }, []);
 
   return (
@@ -255,6 +289,34 @@ function AdminForm() {
           >
             Yield Givers Admin Panel
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-1 my-5 gap-4">
+            <div className="w-[30%] m-auto flex flex-col items-center justify-center">
+              <p className="shadow text-center font-bold bg-[#ffffff] font-Open_Sans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                Balance : {`${withdrawBalance} USDC`}
+              </p>
+              <button
+                type="button"
+                className="flex justify-center items-center bg-[#FFD700] font-Open_Sans text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
+                onClick={() => handleSubmit("Withdraw Contract Balance")}
+              >
+                {withdrewloading ? (
+                  <Oval
+                    visible={true}
+                    height="25"
+                    width="25"
+                    color="#ffffff"
+                    ariaLabel="oval-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    secondaryColor="#ffffff"
+                  />
+                ) : (
+                  "Withdraw Contract Balance"
+                )}
+              </button>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="mb-4">
               <label
@@ -575,7 +637,11 @@ function AdminForm() {
                 type="button"
                 className="flex justify-center items-center bg-[#FFD700] font-Open_Sans text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
               >
-                {investLoading ? `00.00 USDC` : `${data[0]?.planTwoMul} USDC`}
+                {investLoading
+                  ? `00.00 USDC`
+                  : data[0]
+                  ? `${data[0].planTwoMul/1000000} USDC`
+                  : `00.00 USDC`}
               </button>
             </div>
             <div className="mb-4">
@@ -589,7 +655,12 @@ function AdminForm() {
                 type="button"
                 className="flex justify-center items-center bg-[#FFD700] font-Open_Sans text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
               >
-                {investLoading ? `00.00 USDC` : `${data[1]?.planTwoMul} USDC`}
+                {/* {investLoading ? `00.00 USDC` : `${data[1]?.planTwoMul} USDC`} */}
+                {investLoading
+                  ? `00.00 USDC`
+                  : data[1]
+                  ? `${data[1].planTwoMul/1000000} USDC`
+                  : `00.00 USDC`}
               </button>
             </div>
             <div className="mb-4">
@@ -604,7 +675,12 @@ function AdminForm() {
                 type="button"
                 className="flex justify-center items-center bg-[#FFD700] font-Open_Sans text-[#000] font-bold py-2 px-3 rounded mt-2 w-full"
               >
-                {investLoading ? `00.00 USDC` : `${data[2]?.planTwoMul} USDC`}
+                {/* {investLoading ? `00.00 USDC` : `${data[2]?.planTwoMul} USDC`} */}
+                {investLoading
+                  ? `00.00 USDC`
+                  : data[2]
+                  ? `${data[2].planTwoMul/1000000} USDC`
+                  : `00.00 USDC`}
               </button>
             </div>
           </div>
